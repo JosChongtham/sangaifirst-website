@@ -104,11 +104,12 @@ button{font:inherit}
   .brand-name{font-size:15px;line-height:1.15;max-width:9.5em;overflow:visible}
   .nav-cta{padding:0 14px;margin:4px 0}
   .nav-links{order:3;flex:1 1 100%;margin:0 0 0 50px;justify-content:space-between} /* 50px = logo 40 + gap 10: starts under the name */
+  .nav-links a{padding:0 5px} /* spacing comes from space-between, so the row never overflows */
   .nav-links li:first-child a{padding-left:0}
-  .nav-links li:last-child a{padding-right:0}
+  .nav-links li:last-child a{padding-right:14px} /* = .nav-cta side padding: About's text ends where “Support us” text ends */
 }
 @media (min-width: 481px) and (max-width: 760px){ .nav-links{justify-content:flex-start;gap:14px} }
-@media (max-width: 370px){ .nav-links{font-size:14px} .nav-links a{padding:0 4px} }
+@media (max-width: 370px){ .nav-links{font-size:14px} .nav-links a{padding:0 3px} .nav-cta{padding:0 12px} .nav-links li:last-child a{padding-right:12px} }
 @media (max-width: 330px){ .nav-links{font-size:13px} }
 
 /* deer watermark: the engraving, large and faint, peeking from behind carousels and cards */
