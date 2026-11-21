@@ -734,14 +734,16 @@ work_body = f'''    <section style="max-width: 1080px; margin: 0 auto; padding: 
     </section>'''
 
 # ---------------------------------------------------------------- ABOUT
-trustees = [
+trustees = [  # order as in the trust deed
     ('Dr Khangembam Shamungou', 'President · Managing Trustee', 'Founder. Author of 23 books on nature and the Sangai.'),
     ('Kumam Jugeshor', 'Vice-President', 'Founder. Ornithologist and retired Principal of Kumbi College.'),
-    ('Salam Prasanta', 'Trustee', 'Founder.'),
-    ('Khwairakpam Budha', 'Trustee', 'Founder.'),
-    ('Elangbam Premjit', 'Trustee', ''),
-    ('Salam Brajakumar', 'Trustee', ''),
     ('Tongbram Budhi', 'Trustee', ''),
+    ('Elangbam Premjit', 'Trustee', ''),
+    ('Khwairakpam Budha', 'Trustee', 'Founder.'),
+    ('Khangembam Ajitkumar', 'Trustee', ''),
+    ('Salam Brajakumar', 'Trustee', ''),
+    ('Salam Prasanta', 'Trustee', 'Founder.'),
+    ('Telheiba Kumam', 'Trustee', ''),
 ]
 story = [
     ('1954', 'A sanctuary is born', 'On 10 December, the Manipur Board for Wildlife, chaired by V.S. Sundram, resolved to create a 50 km² sanctuary for the Sangai.'),
@@ -757,15 +759,24 @@ stats = [('1,054', 'students reached across 11 schools in 2025'), ('586', 'stude
 
 
 # Trustee portraits (add more as the Foundation sends them); others show initials.
+# Background removed and cropped to head and shoulders (originals: iCloud "Sangai First/Passport").
 TRUSTEE_PHOTOS = {
-    'Khwairakpam Budha': IMG + 'trustee-budha.png',  # background removed; original in reference/
+    'Dr Khangembam Shamungou': IMG + 'trustee-shamungou.png',
+    'Kumam Jugeshor': IMG + 'trustee-jugeshor.png',
+    'Tongbram Budhi': IMG + 'trustee-budhi.png',
+    'Elangbam Premjit': IMG + 'trustee-premjit.png',
+    'Khwairakpam Budha': IMG + 'trustee-budha.png',
+    'Khangembam Ajitkumar': IMG + 'trustee-ajitkumar.png',
+    'Salam Brajakumar': IMG + 'trustee-brajakumar.png',
+    'Salam Prasanta': IMG + 'trustee-prasanta.png',
+    'Telheiba Kumam': IMG + 'trustee-telheiba.png',
 }
 
 
 def avatar(name):
-    style = 'flex: none; display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 999px'
+    style = 'flex: none; display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 999px'
     if name in TRUSTEE_PHOTOS:
-        return f'<img src="{TRUSTEE_PHOTOS[name]}" alt="" loading="lazy" style="{style}; object-fit: cover; object-position: center 30%; background: var(--tint-fill)">'
+        return f'<img src="{TRUSTEE_PHOTOS[name]}" alt="" loading="lazy" style="{style}; object-fit: cover; background: var(--tint-fill)">'
     return f'<span aria-hidden="true" style="{style}; background: var(--tint-fill); color: var(--tint); font-weight: 700; font-size: 18px">{initials(name)}</span>'
 
 
