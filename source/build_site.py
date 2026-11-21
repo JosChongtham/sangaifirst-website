@@ -6,6 +6,7 @@ here (ported from generate_pages.py, which produced the Design-canvas pages).
     python3 source/build_site.py
 """
 import hashlib
+import json
 import html
 import os
 import shutil
@@ -150,6 +151,15 @@ button{font:inherit}
 .dlg-who li{padding:6px 12px;border-radius:999px;background:var(--card2);font-size:14px;color:var(--label2)}
 .dlg-src{margin:24px 0 0;font-size:13px;color:var(--label3)}
 @media (max-width: 520px){ .dlg-body{padding:28px 20px 24px} .dlg-title{font-size:24px} }
+
+/* programme cover photos and dialog gallery */
+.ev-cover{display:block;width:calc(100% + 56px);max-width:none;height:180px;margin:-28px -28px 0;object-fit:cover;background:var(--card2)}
+.dlg-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.dlg-gallery a{display:block;border-radius:14px;overflow:hidden;background:var(--card2);aspect-ratio:4/3}
+.dlg-gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .2s ease}
+@media (prefers-reduced-motion: no-preference){ .dlg-gallery a:hover img{transform:scale(1.04)} }
+.dlg-gallery a:hover{opacity:1}
+.dlg-src a{color:inherit}
 
 /* stateful controls (state lives in aria attributes, set by site.js) */
 .dot span{display:block;width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,0.45)}
@@ -506,18 +516,22 @@ ev2026 = [
     ('11 Jul', 'Native tree drive', 'Thanga Chingjao Hillock, Loktak', 'With Loktak Folklore Museum, restoring the hillock’s forest.'),
     ('25 Jun', 'Sangai Day at school', 'Padma Ratna English School, Kakching', '112 participants; 28 quiz winners.'),
     ('14 Jun', 'World Environment Day', 'Hanubi Hillock, Moirang', 'Around 80 young people planted 250 native saplings.'),
-    ('9 Jan', 'Sangai Day at school', 'Special Regular English School, Nambol', '70 participants; 17 quiz winners.'),
+    ('9 Feb', 'Sangai Day at school', 'Special Regular English School, Nambol', '70 participants; 17 quiz winners.'),
 ]
 ev2025 = [
     ('10 Dec 2025', '2nd Sangai Day', 'Phouoibee Community Hall, Keibul Lamjao', '152 quiz winners from 11 schools honoured; 1,054 students reached in 2025.'),
+    ('29 Nov 2025', 'Sangai Ambassador sessions', 'Chingmei and Ningthoukhong', 'Students Ningthoujam Lanchenbi and Haobijam Anamika took the Sangai’s story home.'),
     ('18 Nov 2025', 'School programme', 'Advanced Intermediate College, Moirang', '53 students and 12 teachers.'),
     ('9 Nov 2025', 'Yarou Sangai 2025', 'Bishnupur Higher Secondary School', 'A district painting competition: 93 students took part.'),
     ('27 Oct 2025', 'Sangaigi Numit', 'Toubul Government High School', 'A spot quiz with 47 students.'),
     ('15 Sep 2025', 'Sangai Day at school', 'Sanatombi Oriental English School, Kumbi', '14 books donated; 203 took the quiz.'),
     ('16 Aug 2025', 'Sangai Day at school', 'Loyalam Public School, Moirangkhunou', 'Closed with a cultural performance on the Sangai.'),
     ('12 Jul 2025', 'Sangai Day at school', 'Diligent Public School, Moirang', '159 students, 14 teachers and 5 parents.'),
+    ('28 Jun 2025', 'Sangai Ambassador sessions', 'Ideal School, Thanga', 'Class X students Priyarani Moirangthem and Menaka Oinam led their own sessions.'),
     ('7 Jun 2025', 'Sangai Day at school', 'Ideal School, Thanga', '85 participants; 70 students took the quiz.'),
+    ('12 May 2025', 'Sangai Ambassador sessions', 'Phoubakchao High School, Imphal West', 'Class X students Singa Tajeda and Phisubam Wajifa led sessions on 12 and 13 May.'),
     ('10 May 2025', 'Sangai Day at school', 'Phoubakchao High School, Imphal West', '16 books donated; winners got free zoo entry.'),
+    ('2 May 2025', 'Sangai Ambassador sessions', 'Chingmei High School', 'Two days after our visit, students began teaching others about the Sangai.'),
     ('19 Apr 2025', 'Let’s Know Our Sangai', 'Chingmei High School, Chandpur', '12 books donated; 71 students took the quiz.'),
     ('8 Mar 2025', 'School programme', 'Sekmaijin High School, Imphal West', 'With the Chief Conservator of Forests (Wildlife).'),
     ('22 Feb 2025', 'Sangai Day at school', 'Sambanlei Sekpil School, Kumbi', '145 students, 7 teachers and 12 parents.'),
@@ -640,6 +654,61 @@ EV_DETAILS = {
 }
 
 
+BROCHURE_DATES = set(EV_DETAILS)
+
+# Details from Facebook posts (reference/facebook/posts.json).
+EV_DETAILS.update({
+    '26 Sep': dict(
+        points=['A one-day sensitisation programme for Sangai Day at L. Dhananjoy Memorial English School (LDMES), Tronglaobi.',
+                'Kumam Jugeshor set out the Sangai’s historical, ecological and cultural importance, and the threats it faces: human pressure, habitat loss linked to the Ithai Barrage, and a population so small it risks inbreeding.'],
+        who=['Dr Kh. Shamungou, President', 'Kumam Jugeshor, Vice-President', 'L. Angouton Meitei, Managing Director, LDMES',
+             'Kumam Oken Singh, Principal, LDMES']),
+    '11 Jul': dict(
+        points=['A native tree drive at the summit of Thanga Chingjao Hillock, overlooking Loktak Lake, with the Loktak Folklore Museum.',
+                'It began with the planting of Uningthou (Phoebe hainesiana), Manipur’s State Tree, by Tongbram Ahongjao, founder of the museum, and Kumam Jugeshor.',
+                'Museum members and our trustees then planted indigenous saplings across the hilltop, to help the hillock’s native forest grow back.'],
+        who=['Tongbram Ahongjao, Founder, Loktak Folklore Museum', 'Kumam Jugeshor, Vice-President', 'Trustees of the Foundation']),
+    '14 Jun': dict(
+        counts=[('80', 'young people'), ('250', 'native saplings')],
+        points=['World Environment Day at Ebuthou Resort (Hanubiching), Moirang, sponsored by the Bishnupur Forest Division.',
+                'Organised with Thangjing Yageirel Marup, Ebuthou Resort, the Institute of Development Studies (Manipur), the Manipur Bird Club and the Foundation.',
+                '250 indigenous saplings were planted in the morning, followed by an awareness session on conservation and sustainable living.'],
+        who=['L. Joykumar, Chief Conservator of Forests (Wildlife), Chief Guest', 'R.K. Amarjit, Special Secretary, Forest',
+             'L. Biramangol, Deputy Conservator of Forests', 'W. Romabai, Divisional Forest Officer, Bishnupur', 'Dr Kh. Shamungou, President']),
+    '29 Nov 2025': dict(
+        points=['Sangai Ambassadors carry what they learn at our programmes to their own neighbourhoods.',
+                'Ningthoujam Lanchenbi (Class IX, Chingmei High School) held another session on 29 November 2025.',
+                'Haobijam Anamika (Class X, Ningthoukhong Higher Secondary School), a runner-up in Yarou Sangai 2025, held a session of her own.']),
+    '28 Jun 2025': dict(
+        points=['Two Class X students of Ideal School, Thanga, Priyarani Moirangthem and Menaka Oinam, each led a session on the Sangai on 28 June 2025, three weeks after our programme at their school.']),
+    '12 May 2025': dict(
+        points=['Two days after our programme at Phoubakchao High School, its students began passing the message on.',
+                'Singa Tajeda (Class X) led a session at Konuma Mayai Leikai on 12 May 2025.',
+                'Phisubam Wajifa (Class X) led another on 13 May 2025.']),
+    '2 May 2025': dict(
+        counts=[('20', 'students'), ('14', 'at a coaching centre')],
+        points=['The first Sangai Ambassador sessions, two weeks after “Let’s Know Our Sangai” at Chingmei High School.',
+                'N. Thoithoisana (Class X) spoke to 20 students on 2 May 2025.',
+                'Ningthoujam Lanchenbi (Class IX) held sessions on 2 May and, on 3 May, at a coaching centre in Chingmei for 14 people.']),
+})
+EV_DETAILS['9 Nov 2025']['points'] += [
+    'Three events on the theme “Our Sangai”: a poem or essay, a written quiz and painting.',
+    'Winner: Laiphrakpam Urmila Chanu (Class X, Sanatombi Oriental English School, Kumbi). Runners-up: Thoi Tongbram (Paradise Gardening School, Chandpur), Brikrama Lourembam (Comprehensive School, Oinam), Haobijam Anamika Chanu (Ningthoukhong Higher Secondary School) and Keisham Lanchenba (Bethel English School, Nambol).']
+
+# Photos picked from Facebook by import_facebook.py.
+FB_WORK = json.load(open(os.path.join(HERE, 'fb_work.json'), encoding='utf-8'))
+FB_PAGE = 'https://www.facebook.com/profile.php?id=61573232295835'
+
+
+def has_dialog(d):
+    return d in EV_DETAILS or bool(FB_WORK.get(d, {}).get('photos'))
+
+
+def ev_cover(d):
+    photos = FB_WORK.get(d, {}).get('photos')
+    return f'\n            <img class="ev-cover" src="{photos[0]}" alt="" loading="lazy">' if photos else ''
+
+
 def ev_id(date):
     return 'ev-' + date.lower().replace(' ', '-')
 
@@ -647,13 +716,23 @@ def ev_id(date):
 def ev_dialogs(evs):
     out = ''
     for d, t, p, n in evs:
-        det = EV_DETAILS.get(d)
-        if not det:
+        if not has_dialog(d):
             continue
-        counts = ''.join(f'<div class="dlg-stat"><p class="dlg-n">{c}</p><p class="dlg-l">{l}</p></div>' for c, l in det['counts'])
+        det = EV_DETAILS.get(d, {})
+        fb = FB_WORK.get(d, {})
+        counts = ''.join(f'<div class="dlg-stat"><p class="dlg-n">{c}</p><p class="dlg-l">{l}</p></div>' for c, l in det.get('counts', []))
         counts = f'<div class="dlg-stats">{counts}</div>' if counts else ''
-        points = ''.join(f'<li>{x}</li>' for x in det['points'])
-        who = ''.join(f'<li>{x}</li>' for x in det['who'])
+        points = det.get('points') or [n]
+        points = f'<h3 class="dlg-h">What happened</h3>\n        <ul class="dlg-points">' + ''.join(f'<li>{x}</li>' for x in points) + '</ul>'
+        who = det.get('who')
+        who = (f'<h3 class="dlg-h">Who was there</h3>\n        <ul class="dlg-who">' + ''.join(f'<li>{x}</li>' for x in who) + '</ul>') if who else ''
+        clips = set(fb.get('clippings', []))
+        gallery = ''.join(
+            f'<a href="{ph}" target="_blank" rel="noopener"><img src="{ph}" loading="lazy" alt="{"Newspaper report" if ph in clips else "Photo"} from {t}, {d}"></a>'
+            for ph in fb.get('photos', []))
+        gallery = f'<h3 class="dlg-h">Photos</h3>\n        <div class="dlg-gallery">{gallery}</div>' if gallery else ''
+        sources = (['our 2024–25 programme brochure'] if d in BROCHURE_DATES else []) + ([f'<a href="{FB_PAGE}">our Facebook page</a>'] if fb else [])
+        src = f'<p class="dlg-src">From {" and ".join(sources)}.</p>' if sources else ''
         out += f'''
     <dialog class="dlg" id="{ev_id(d)}" aria-labelledby="{ev_id(d)}-t">
       <div class="dlg-body">
@@ -662,25 +741,24 @@ def ev_dialogs(evs):
         <h2 class="dlg-title" id="{ev_id(d)}-t">{t}</h2>
         <p class="dlg-place">{p}</p>
         {counts}
-        <h3 class="dlg-h">What happened</h3>
-        <ul class="dlg-points">{points}</ul>
-        <h3 class="dlg-h">Who was there</h3>
-        <ul class="dlg-who">{who}</ul>
-        <p class="dlg-src">From our 2024–25 programme brochure.</p>
+        {points}
+        {gallery}
+        {who}
+        {src}
       </div>
     </dialog>'''
     return out
 
 
 def more_btn(d):
-    if d not in EV_DETAILS:
+    if not has_dialog(d):
         return ''
     return f'\n            <button type="button" class="ev-more" data-open="{ev_id(d)}" aria-haspopup="dialog">Details <span aria-hidden="true">›</span></button>'
 
 
 def event_cards(evs):
     return ''.join(f'''
-          <li style="flex: 0 0 340px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 16px; min-height: 300px; padding: 28px; border-radius: 24px; background: var(--card); box-shadow: var(--shadow)">
+          <li style="flex: 0 0 340px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 16px; min-height: 300px; padding: 28px; border-radius: 24px; background: var(--card); box-shadow: var(--shadow); overflow: hidden">{ev_cover(d)}
             <p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--tint)">{d}</p>
             <div style="flex: 1">
               <h2 style="margin: 0; font-size: 22px; line-height: 1.25; font-weight: 600; letter-spacing: -0.01em">{t}</h2>
@@ -715,7 +793,7 @@ work_body = f'''    <section style="max-width: 1080px; margin: 0 auto; padding: 
       <div style="max-width: 1128px; margin: 0 auto">{year_panels}
       </div>
     </section>
-{ev_dialogs(ev2025)}
+{ev_dialogs(ev2026)}{ev_dialogs(ev2025)}
 
     <section style="{SEC}">
       <figure style="margin: 0">
@@ -1091,5 +1169,10 @@ os.makedirs(img_out, exist_ok=True)
 for name in sorted(os.listdir(os.path.join(ROOT, 'images'))):
     if name == 'founders-cutout.webp' or name.startswith('.'):
         continue
-    shutil.copy2(os.path.join(ROOT, 'images', name), os.path.join(img_out, name))
+    src = os.path.join(ROOT, 'images', name)
+    if os.path.isdir(src):  # e.g. images/work/ (programme photos)
+        shutil.rmtree(os.path.join(img_out, name), ignore_errors=True)
+        shutil.copytree(src, os.path.join(img_out, name))
+    else:
+        shutil.copy2(src, os.path.join(img_out, name))
 print('built', len(site_pages), 'pages into', OUT)
