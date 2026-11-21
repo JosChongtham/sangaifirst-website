@@ -22,6 +22,10 @@ python3 source/build_site.py
 
 Preview locally with `python3 -m http.server 8765 --directory site`. The Wikimedia Commons photos are in `images/` and credited in the Discover page footer.
 
+**Publishing:** the site is hosted on GitHub Pages (repo `JosChongtham/sangaifirst-website`, branch `gh-pages`) at https://sangaifirst.com. After any change, run `./publish.sh "What changed"`: it rebuilds, commits, pushes `main`, and pushes `site/` to `gh-pages`. The `reference/` folder is kept out of the public repo.
+
+**Domain DNS (Hostinger):** A records for `@` → 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153; CNAME `www` → `joschongtham.github.io`.
+
 ## Suggested first task for Claude Code (original brief)
 
 > Convert `source/generate_pages.py` / the `.dc.html` pages into a plain static website (HTML + CSS + a little vanilla JS for the carousels) in `site/`, with images from `images/`. Keep the design exactly: Apple HIG–style (system font, frosted-glass pill nav, light and dark mode via CSS variables, 44px tap targets, reduced-motion support), the carousels, and the newsprint founders card on About. Then download the Wikimedia Commons photos listed below into `images/`, place them as described, and add a credits line in the footer.
