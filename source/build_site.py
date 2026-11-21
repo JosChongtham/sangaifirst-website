@@ -161,6 +161,22 @@ button{font:inherit}
 .dlg-gallery a:hover{opacity:1}
 .dlg-src a{color:inherit}
 
+/* books */
+.book{flex:0 0 200px;scroll-snap-align:start;display:flex;flex-direction:column;gap:6px}
+.book img{display:block;width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:12px;background:var(--card2);box-shadow:0 1px 2px rgba(0,0,0,0.12),0 10px 24px rgba(0,0,0,0.14);margin-bottom:8px}
+.book h3{margin:0;font-size:16px;line-height:1.3;font-weight:600}
+.book-meta{margin:0;font-size:13px;line-height:1.4;color:var(--label3)}
+.booklist{margin-top:8px;border-radius:20px;background:var(--card)}
+.booklist summary{display:flex;align-items:center;min-height:52px;padding:0 24px;cursor:pointer;font-weight:600;color:var(--tint);list-style:none}
+.booklist summary::-webkit-details-marker{display:none}
+.booklist summary::after{content:"›";margin-left:8px;transition:transform .2s ease}
+.booklist[open] summary::after{transform:rotate(90deg)}
+.booklist ol{margin:0;padding:0 24px 20px 48px;columns:2 300px;column-gap:32px;font-size:15px;color:var(--label2)}
+.booklist li{break-inside:avoid;padding:4px 0}
+.booklist li span{color:var(--label)}
+.booklist em{font-style:normal;color:var(--label3)}
+.booklist small{font-size:13px;color:var(--label3)}
+
 /* stateful controls (state lives in aria attributes, set by site.js) */
 .dot span{display:block;width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,0.45)}
 .dot[aria-current="true"] span{background:#FFFFFF}
@@ -807,7 +823,7 @@ work_body = f'''    <section style="max-width: 1080px; margin: 0 auto; padding: 
       <ul style="list-style: none; margin: 0; padding: 0 28px; background: var(--card); border-radius: 24px">
         <li style="padding: 22px 0; border-bottom: 1px solid var(--sep)"><p style="margin: 0; font-size: 13px; color: var(--label3)">5 June 2026</p><p style="margin: 2px 0 0; font-weight: 600">Dr Khangembam Shamungou receives the Lifetime Achievement in Environment Award</p></li>
         <li style="padding: 22px 0; border-bottom: 1px solid var(--sep)"><p style="margin: 0; font-size: 13px; color: var(--label3)">5 June 2026</p><p style="margin: 2px 0 0; font-weight: 600">Kumam Jugeshor receives the Ningombam Pheiraba Award 2026</p></li>
-        <li style="padding: 22px 0"><p style="margin: 0; font-size: 13px; color: var(--label3)">23 May 2026</p><p style="margin: 2px 0 0; font-weight: 600">Dr Shamungou’s 23rd book, “Ningsingli Ngasisu”, is released</p></li>
+        <li style="padding: 22px 0"><p style="margin: 0; font-size: 13px; color: var(--label3)">23 May 2026</p><p style="margin: 2px 0 0; font-weight: 600">Dr Shamungou’s 23rd book, “Ningshingli Ngasisu”, is released</p></li>
       </ul>
     </section>'''
 
@@ -889,6 +905,56 @@ trustee_html = ''.join(f'''
 
 TORN = 'polygon(0.0% 0.5%, 3.6% 0.2%, 7.1% 1.0%, 10.7% 0.1%, 14.3% 0.9%, 17.9% 0.6%, 21.4% 0.1%, 25.0% 0.8%, 28.6% 0.1%, 32.1% 0.7%, 35.7% 0.1%, 39.3% 0.1%, 42.9% 0.7%, 46.4% 1.3%, 50.0% 0.2%, 53.6% 0.4%, 57.1% 1.0%, 60.7% 1.5%, 64.3% 0.9%, 67.9% 0.6%, 71.4% 1.6%, 75.0% 0.1%, 78.6% 1.4%, 82.1% 0.5%, 85.7% 0.2%, 89.3% 0.2%, 92.9% 0.5%, 96.4% 1.3%, 100.0% 0.3%, 99.5% 12.5%, 99.4% 25.0%, 99.7% 37.5%, 99.5% 50.0%, 99.9% 62.5%, 99.9% 75.0%, 99.8% 87.5%, 100.0% 98.9%, 96.4% 99.3%, 92.9% 99.5%, 89.3% 99.1%, 85.7% 99.3%, 82.1% 99.5%, 78.6% 98.7%, 75.0% 98.9%, 71.4% 99.6%, 67.9% 99.1%, 64.3% 99.2%, 60.7% 98.6%, 57.1% 98.8%, 53.6% 99.5%, 50.0% 98.4%, 46.4% 99.8%, 42.9% 99.3%, 39.3% 98.8%, 35.7% 99.8%, 32.1% 99.2%, 28.6% 99.9%, 25.0% 98.9%, 21.4% 98.8%, 17.9% 99.1%, 14.3% 98.6%, 10.7% 99.5%, 7.1% 98.9%, 3.6% 99.0%, 0.0% 99.1%, 0.4% 87.5%, 0.8% 75.0%, 0.9% 62.5%, 0.4% 50.0%, 0.6% 37.5%, 0.1% 25.0%, 0.6% 12.5%)'
 
+# Dr Shamungou's books. Covers from the Foundation's Facebook posts; list and awards from the
+# "books in his credit" page of his own books (reference/facebook/raw/p265-3.jpg).
+BOOKS = [  # (title, year, note, cover)
+    ('Ningshingli Ngasisu', '2026', 'His 23rd book: a celebration of nature, wisdom and indigenous knowledge.', 'ningshingli-ngasisu'),
+    ('The Paper Crane Girl', '', 'The story of Sadako Sasaki, a symbol of love and peace.', 'paper-crane-girl'),
+    ('My Fair Lady Comes to Animal Garden', '', 'A Nongin couple, Manipur’s State Bird, at the Manipur Zoological Garden.', 'my-fair-lady'),
+    ('The Mother of Dark Chamber', '2022', 'A hornbill couple that nests inside a tree’s cavity.', 'mother-of-dark-chamber'),
+    ('The Lost Kingdom', '2020', 'The story of a vanishing deer: the Sangai.', 'lost-kingdom'),
+    ('Endangered Manipur Brow-antlered Deer', '2010', 'An environmental assessment of the Sangai.', 'endangered-brow-antlered-deer'),
+    ('Sandhyagee Eshei', '2007', 'Namoirakpam Chandreshor Memorial Literature Award, 2011.', 'sandhyagee-eshei'),
+    ('Sanamanbigee Meetyeng', '1998', '', 'sanamanbigee-meetyeng'),
+    ('Sangaina Eikhoibu Ngaihouri', '1997', 'First Prize, Children Book Competition, Department of Education, Manipur.', 'sangaina-eikhoibu-ngaihouri'),
+    ('Eibu Amukta Kanbiyu', '1997', '', 'eibu-amukta-kanbiyu'),
+    ('Sangai', '1993', 'His first book on the Sangai.', 'sangai'),
+]
+ALL_BOOKS = [  # (title, year, award)
+    ('Sangai', '1993', ''),
+    ('Manipurgee Tanglaba Sa-Uchek', '1994', 'First Prize, Children Book Competition, 1994, Department of Education, Manipur'),
+    ('Sangaina Eikhoibu Ngaihouri', '1997', 'First Prize, Children Book Competition, 1995, Department of Education, Manipur'),
+    ('Eibu Amukta Kanbiyu', '1997', ''),
+    ('Sanamanbigee Meetyeng', '1998', ''),
+    ('Wildlife in Manipur', '2000', ''),
+    ('Prakritigee Tampakta, Part I', '2004', ''),
+    ('Pukhramba Kajao: A Martyr of 1981', '2006', ''),
+    ('Sandhyagee Eshei', '2007', 'Namoirakpam Chandreshor Memorial Literature Award, 2011, Writers Club Manipur, Nambol'),
+    ('Loktak Eidi Wareda', '2009', ''),
+    ('Endangered Manipur Brow-antlered Deer', '2010', ''),
+    ('Prakritigee Tampakta, Part II', '2011', ''),
+    ('Prakritigee Tampakta, Part III', '2011', ''),
+    ('Chingyagee Ipu', '2013', 'Lasmi Gomti Madhumati Children Book Award, 2015, and Tolem Ningol Atoibemma Award, 2016'),
+    ('Thirushi Lao Yenglushi Lao', '2014', 'Asangbam Minketon Angang Nawa Sahitya Mana, 2015, and Bal Sahitya Puraskar, 2018, Sahitya Akademi'),
+    ('Warini Uchekshinggi', '2016', ''),
+    ('Mitna Uba Lai', '2017', ''),
+    ('An Inventory of Animals of Manipur', '2017', ''),
+    ('Amphibians and Reptiles of Manipur', '2019', ''),
+    ('The Lost Kingdom', '2020', ''),
+    ('The Mother of Dark Chamber', '2022', ''),
+    ('My Fair Lady Comes to Animal Garden', '', ''),
+    ('The Paper Crane Girl', '', ''),
+    ('Ningshingli Ngasisu', '2026', ''),
+]
+book_cards = ''.join(f"""
+          <li class="book">
+            <img src="images/books/{c}.jpg" alt="Cover of “{t}”" loading="lazy">
+            <h3>{t}</h3>
+            <p class="book-meta">{y or 'Recent'}{(' · ' + n) if n else ''}</p>
+          </li>""" for t, y, n, c in BOOKS)
+all_books = ''.join(f"<li><span>{t}</span>{(' <em>' + y + '</em>') if y else ''}{('<br><small>' + a + '</small>') if a else ''}</li>" for t, y, a in ALL_BOOKS)
+
+
 about_body = f'''    <section style="max-width: 1080px; margin: 0 auto; padding: 96px 24px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 72px 56px">
       <div style="flex: 1 1 380px; min-width: 0">
         <p style="margin: 0 0 12px; font-size: 15px; font-weight: 600; color: var(--tint)">Our story</p>
@@ -957,13 +1023,24 @@ about_body = f'''    <section style="max-width: 1080px; margin: 0 auto; padding:
       </div>
     </section>
 
-    <section style="{SEC}; padding-bottom: 120px">
-      <div class="pad-card" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; padding: 40px; border-radius: 28px; background: var(--card)">
-        <img src="{SPEAKER}" alt="A trustee speaking to students" loading="lazy" style="flex: 0 0 200px; width: 200px; height: 200px; object-fit: cover; border-radius: 999px">
-        <div style="flex: 1 1 300px; min-width: 0">
+    <section data-carousel aria-label="Books by Dr Shamungou" class="has-wm" style="padding: 120px 0 0">
+      {wm("right")}
+      <div style="max-width: 1080px; margin: 0 auto; padding: 0 24px 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px">
+        <div>
           <h2 style="{H2}">Read about the Sangai</h2>
-          <p style="margin: 12px 0 0; color: var(--label2)">We give Dr Shamungou’s books to every school we visit, among them “Sangai” (1993), “Endangered Manipur Brow-antlered Deer” (2010) and “Loktak Eidi Wareda” (2009).</p>
+          <p style="margin: 12px 0 0; max-width: 36em; color: var(--label2)">Dr Shamungou has written 23 books on nature, wildlife and the Sangai. We give them to every school we visit.</p>
         </div>
+        {arrows('books')}
+      </div>
+      <div style="max-width: 1128px; margin: 0 auto">
+        <ul data-track class="track" style="{TRACK}">{book_cards}
+        </ul>
+      </div>
+      <div style="max-width: 1080px; margin: 0 auto; padding: 0 24px 120px">
+        <details class="booklist">
+          <summary>All 23 books</summary>
+          <ol>{all_books}</ol>
+        </details>
       </div>
     </section>'''
 
