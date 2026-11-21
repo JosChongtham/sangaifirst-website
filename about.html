@@ -11,8 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@900&amp;display=swap">
-<link rel="stylesheet" href="assets/styles.css?v=97940989">
-<script src="assets/site.js?v=97940989" defer></script>
+<link rel="stylesheet" href="assets/styles.css?v=c169b43e">
+<script src="assets/site.js?v=c169b43e" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -252,13 +252,82 @@
       </div>
     </section>
 
-    <section style="max-width: 1080px; margin: 0 auto; padding: 120px 24px 0; padding-bottom: 120px">
-      <div class="pad-card" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; padding: 40px; border-radius: 28px; background: var(--card)">
-        <img src="images/speaker-hd.jpg" alt="A trustee speaking to students" loading="lazy" style="flex: 0 0 200px; width: 200px; height: 200px; object-fit: cover; border-radius: 999px">
-        <div style="flex: 1 1 300px; min-width: 0">
+    <section data-carousel aria-label="Books by Dr Shamungou" class="has-wm" style="padding: 120px 0 0">
+      <img class="wm wm-right" src="images/deer-engraving.png" alt="" aria-hidden="true" loading="lazy">
+      <div style="max-width: 1080px; margin: 0 auto; padding: 0 24px 24px; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px">
+        <div>
           <h2 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -0.022em">Read about the Sangai</h2>
-          <p style="margin: 12px 0 0; color: var(--label2)">We give Dr Shamungou’s books to every school we visit, among them “Sangai” (1993), “Endangered Manipur Brow-antlered Deer” (2010) and “Loktak Eidi Wareda” (2009).</p>
+          <p style="margin: 12px 0 0; max-width: 36em; color: var(--label2)">Dr Shamungou has written 23 books on nature, wildlife and the Sangai. We give them to every school we visit.</p>
         </div>
+        <div style="display: flex; gap: 8px; flex: none">
+            <button type="button" aria-label="Previous books" data-scroll="-1" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--sep); background: var(--card); color: var(--label); cursor: pointer; padding: 0"><svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L2 8l6 6"></path></svg></button>
+            <button type="button" aria-label="Next books" data-scroll="1" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--sep); background: var(--card); color: var(--label); cursor: pointer; padding: 0"><svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2l6 6-6 6"></path></svg></button>
+          </div>
+      </div>
+      <div style="max-width: 1128px; margin: 0 auto">
+        <ul data-track class="track" style="display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-top: 4px; padding-bottom: 24px; scroll-padding-left: 24px; list-style: none; margin: 0">
+          <li class="book">
+            <img src="images/books/ningshingli-ngasisu.jpg" alt="Cover of “Ningshingli Ngasisu”" loading="lazy">
+            <h3>Ningshingli Ngasisu</h3>
+            <p class="book-meta">2026 · His 23rd book: a celebration of nature, wisdom and indigenous knowledge.</p>
+          </li>
+          <li class="book">
+            <img src="images/books/paper-crane-girl.jpg" alt="Cover of “The Paper Crane Girl”" loading="lazy">
+            <h3>The Paper Crane Girl</h3>
+            <p class="book-meta">Recent · The story of Sadako Sasaki, a symbol of love and peace.</p>
+          </li>
+          <li class="book">
+            <img src="images/books/my-fair-lady.jpg" alt="Cover of “My Fair Lady Comes to Animal Garden”" loading="lazy">
+            <h3>My Fair Lady Comes to Animal Garden</h3>
+            <p class="book-meta">Recent · A Nongin couple, Manipur’s State Bird, at the Manipur Zoological Garden.</p>
+          </li>
+          <li class="book">
+            <img src="images/books/mother-of-dark-chamber.jpg" alt="Cover of “The Mother of Dark Chamber”" loading="lazy">
+            <h3>The Mother of Dark Chamber</h3>
+            <p class="book-meta">2022 · A hornbill couple that nests inside a tree’s cavity.</p>
+          </li>
+          <li class="book">
+            <img src="images/books/lost-kingdom.jpg" alt="Cover of “The Lost Kingdom”" loading="lazy">
+            <h3>The Lost Kingdom</h3>
+            <p class="book-meta">2020 · The story of a vanishing deer: the Sangai.</p>
+          </li>
+          <li class="book">
+            <img src="images/books/endangered-brow-antlered-deer.jpg" alt="Cover of “Endangered Manipur Brow-antlered Deer”" loading="lazy">
+            <h3>Endangered Manipur Brow-antlered Deer</h3>
+            <p class="book-meta">2010 · An environmental assessment of the Sangai.</p>
+          </li>
+          <li class="book">
+            <img src="images/books/sandhyagee-eshei.jpg" alt="Cover of “Sandhyagee Eshei”" loading="lazy">
+            <h3>Sandhyagee Eshei</h3>
+            <p class="book-meta">2007 · Namoirakpam Chandreshor Memorial Literature Award, 2011.</p>
+          </li>
+          <li class="book">
+            <img src="images/books/sanamanbigee-meetyeng.jpg" alt="Cover of “Sanamanbigee Meetyeng”" loading="lazy">
+            <h3>Sanamanbigee Meetyeng</h3>
+            <p class="book-meta">1998</p>
+          </li>
+          <li class="book">
+            <img src="images/books/sangaina-eikhoibu-ngaihouri.jpg" alt="Cover of “Sangaina Eikhoibu Ngaihouri”" loading="lazy">
+            <h3>Sangaina Eikhoibu Ngaihouri</h3>
+            <p class="book-meta">1997 · First Prize, Children Book Competition, Department of Education, Manipur.</p>
+          </li>
+          <li class="book">
+            <img src="images/books/eibu-amukta-kanbiyu.jpg" alt="Cover of “Eibu Amukta Kanbiyu”" loading="lazy">
+            <h3>Eibu Amukta Kanbiyu</h3>
+            <p class="book-meta">1997</p>
+          </li>
+          <li class="book">
+            <img src="images/books/sangai.jpg" alt="Cover of “Sangai”" loading="lazy">
+            <h3>Sangai</h3>
+            <p class="book-meta">1993 · His first book on the Sangai.</p>
+          </li>
+        </ul>
+      </div>
+      <div style="max-width: 1080px; margin: 0 auto; padding: 0 24px 120px">
+        <details class="booklist">
+          <summary>All 23 books</summary>
+          <ol><li><span>Sangai</span> <em>1993</em></li><li><span>Manipurgee Tanglaba Sa-Uchek</span> <em>1994</em><br><small>First Prize, Children Book Competition, 1994, Department of Education, Manipur</small></li><li><span>Sangaina Eikhoibu Ngaihouri</span> <em>1997</em><br><small>First Prize, Children Book Competition, 1995, Department of Education, Manipur</small></li><li><span>Eibu Amukta Kanbiyu</span> <em>1997</em></li><li><span>Sanamanbigee Meetyeng</span> <em>1998</em></li><li><span>Wildlife in Manipur</span> <em>2000</em></li><li><span>Prakritigee Tampakta, Part I</span> <em>2004</em></li><li><span>Pukhramba Kajao: A Martyr of 1981</span> <em>2006</em></li><li><span>Sandhyagee Eshei</span> <em>2007</em><br><small>Namoirakpam Chandreshor Memorial Literature Award, 2011, Writers Club Manipur, Nambol</small></li><li><span>Loktak Eidi Wareda</span> <em>2009</em></li><li><span>Endangered Manipur Brow-antlered Deer</span> <em>2010</em></li><li><span>Prakritigee Tampakta, Part II</span> <em>2011</em></li><li><span>Prakritigee Tampakta, Part III</span> <em>2011</em></li><li><span>Chingyagee Ipu</span> <em>2013</em><br><small>Lasmi Gomti Madhumati Children Book Award, 2015, and Tolem Ningol Atoibemma Award, 2016</small></li><li><span>Thirushi Lao Yenglushi Lao</span> <em>2014</em><br><small>Asangbam Minketon Angang Nawa Sahitya Mana, 2015, and Bal Sahitya Puraskar, 2018, Sahitya Akademi</small></li><li><span>Warini Uchekshinggi</span> <em>2016</em></li><li><span>Mitna Uba Lai</span> <em>2017</em></li><li><span>An Inventory of Animals of Manipur</span> <em>2017</em></li><li><span>Amphibians and Reptiles of Manipur</span> <em>2019</em></li><li><span>The Lost Kingdom</span> <em>2020</em></li><li><span>The Mother of Dark Chamber</span> <em>2022</em></li><li><span>My Fair Lady Comes to Animal Garden</span></li><li><span>The Paper Crane Girl</span></li><li><span>Ningshingli Ngasisu</span> <em>2026</em></li></ol>
+        </details>
       </div>
     </section>
   </main>
