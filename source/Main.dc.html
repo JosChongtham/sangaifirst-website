@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sangai First Foundation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@900&amp;display=swap">
+<style>
+:root{
+  --bg:#FBFBFD; --card:#FFFFFF; --card2:#F2F2F7;
+  --label:#1D1D1F; --label2:#3A3A3C; --label3:#636366;
+  --sep:rgba(60,60,67,0.18);
+  --tint:#008932; --on-tint:#FFFFFF; --tint-fill:#E8F5EC;
+  --glass:rgba(251,251,253,0.72); --glass-edge:rgba(255,255,255,0.9);
+  --shadow:0 10px 40px rgba(0,0,0,0.07);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#000000; --card:#1C1C1E; --card2:#2C2C2E;
+    --label:#F5F5F7; --label2:#D1D1D6; --label3:#AEAEB2;
+    --sep:rgba(84,84,88,0.65);
+    --tint:#30D158; --on-tint:#000000; --tint-fill:rgba(48,209,88,0.14);
+    --glass:rgba(28,28,30,0.66); --glass-edge:rgba(255,255,255,0.12);
+    --shadow:0 10px 40px rgba(0,0,0,0.5);
+  }
+  .engrave{filter:invert(1)}
+}
+@media (prefers-contrast: more){ :root{ --tint:#006B26; --label2:#1C1C1E; --label3:#3A3A3C; --glass:rgba(255,255,255,0.95) } }
+@media (prefers-contrast: more) and (prefers-color-scheme: dark){ :root{ --tint:#4AD968; --label2:#F2F2F7; --label3:#D1D1D6; --glass:rgba(28,28,30,0.95) } }
+@media (prefers-reduced-transparency: reduce){ :root{ --glass:var(--card) } }
+body{margin:0;background:var(--bg)}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+a{color:var(--tint)}a:hover{opacity:0.8}
+a:focus-visible,button:focus-visible{outline:3px solid var(--tint);outline-offset:3px}
+.glassbar{-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%)}
+.track{scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+button{font:inherit}
+</style>
+</helmet>
+<div style="font-family: -apple-system, BlinkMacSystemFont, &quot;SF Pro Text&quot;, Inter, system-ui, sans-serif; color: var(--label); background: var(--bg); font-size: 17px; line-height: 1.5; -webkit-font-smoothing: antialiased">
+  <header style="position: sticky; top: 0; z-index: 10; padding: 12px 16px 0">
+    <nav aria-label="Main" class="glassbar" style="max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 16px; padding: 6px 6px 6px 18px; background: var(--glass); border: 1px solid var(--glass-edge); border-radius: 999px; box-shadow: var(--shadow)">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: var(--label); font-weight: 600; font-size: 16px; letter-spacing: -0.01em">
+        <img class="engrave" src="../images/deer-engraving.png" alt="" style="width: 24px; height: 34px; object-fit: contain">
+        Sangai First Foundation
+      </a>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; font-size: 15px">
+        <a href="Main.dc.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label); font-weight: 600; text-decoration: none">Home</a>
+        <a href="Discover.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">Discover</a>
+        <a href="Work.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">Our Work</a>
+        <a href="About.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">About</a>
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; margin-left: 6px; background: var(--tint); color: var(--on-tint); text-decoration: none; border-radius: 999px; font-weight: 600">Support us</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section aria-roledescription="carousel" aria-label="Highlights" style="max-width: 1080px; margin: 0 auto; padding: 32px 24px 0">
+      <div style="position: relative; border-radius: 28px; overflow: hidden; background: #0B0F0B; height: 600px">
+        <sc-for list="{{slides}}" as="s" hint-placeholder-count="1">
+          <sc-if value="{{s.active}}" hint-placeholder-val="{{true}}">
+            <div role="group" aria-roledescription="slide" aria-label="{{s.label}}" style="position: absolute; inset: 0">
+              <img src="{{s.img}}" alt="{{s.alt}}" style="width: 100%; height: 100%; object-fit: cover; object-position: center 35%">
+              <div style="position: absolute; inset: auto 0 0 0; padding: 120px 48px 40px; background: linear-gradient(to top, rgba(0,0,0,0.62), rgba(0,0,0,0))">
+                <p style="margin: 0 0 8px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.85)">{{s.kicker}}</p>
+                <p style="margin: 0; max-width: 18em; font-size: clamp(32px, 4.5vw, 52px); line-height: 1.08; font-weight: 700; letter-spacing: -0.025em; color: #FFFFFF">{{s.title}}</p>
+              </div>
+            </div>
+          </sc-if>
+        </sc-for>
+        <div class="glassbar" style="position: absolute; right: 24px; bottom: 32px; display: flex; align-items: center; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(0,0,0,0.35)">
+          <button type="button" aria-label="Previous slide" onClick="{{prevSlide}}" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; border-radius: 999px; background: transparent; color: #FFFFFF; cursor: pointer; padding: 0"><svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L2 8l6 6"></path></svg></button>
+          <sc-for list="{{slides}}" as="s" hint-placeholder-count="3">
+            <button type="button" aria-label="Show slide {{s.n}}" aria-current="{{s.current}}" onClick="{{s.go}}" style="display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 44px; border: 0; background: transparent; cursor: pointer; padding: 0"><span style="{{s.dot}}"></span></button>
+          </sc-for>
+          <button type="button" aria-label="Next slide" onClick="{{nextSlide}}" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; border-radius: 999px; background: transparent; color: #FFFFFF; cursor: pointer; padding: 0"><svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2l6 6-6 6"></path></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width: 760px; margin: 0 auto; padding: 120px 24px 0; text-align: center">
+      <div aria-hidden="true" style="display: flex; justify-content: center; margin-bottom: 32px">
+        <img src="../images/deer-hd.jpg" alt="" style="width: 72px; height: 72px; object-fit: cover; border-radius: 999px; border: 3px solid var(--bg)">
+        <img src="../images/group-hd.jpg" alt="" style="width: 72px; height: 72px; object-fit: cover; border-radius: 999px; border: 3px solid var(--bg); margin-left: -16px">
+        <img src="../images/class-hd.jpg" alt="" style="width: 72px; height: 72px; object-fit: cover; border-radius: 999px; border: 3px solid var(--bg); margin-left: -16px">
+      </div>
+      <p style="margin: 0; font-size: clamp(26px, 3vw, 34px); line-height: 1.3; font-weight: 600; letter-spacing: -0.018em">A non-profit trust in Manipur, building a people’s movement for the Sangai and Keibul Lamjao, the world’s only floating national park.</p>
+      <a href="About.dc.html" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 20px; font-size: 17px; font-weight: 500; text-decoration: none">Learn about us <span aria-hidden="true">›</span></a>
+    </section>
+
+    <section style="max-width: 1080px; margin: 0 auto; padding: 120px 24px 0">
+      <a href="Work.dc.html" style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px 40px; padding: 40px; border-radius: 28px; background: var(--tint-fill); color: var(--label); text-decoration: none">
+        <div aria-hidden="true" style="text-align: center; line-height: 1; color: var(--tint)">
+          <p style="margin: 0; font-size: 72px; font-weight: 700; letter-spacing: -0.04em">10</p>
+          <p style="margin: 6px 0 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em">DECEMBER</p>
+        </div>
+        <div style="flex: 1 1 360px; min-width: 0">
+          <p style="margin: 0; font-size: 15px; font-weight: 600; color: var(--tint)">Coming up</p>
+          <p style="margin: 4px 0 0; font-size: 28px; line-height: 1.2; font-weight: 700; letter-spacing: -0.02em">The 3rd Sangai Day</p>
+          <p style="margin: 8px 0 0; color: var(--label2)">Every 10 December, recalling the 1954 resolution to protect the Sangai. This year’s quiz winners will be honoured.</p>
+        </div>
+        <img src="../images/group-hd.jpg" alt="Students holding a Sangai Day banner" style="flex: 0 1 280px; width: 280px; max-width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 18px">
+      </a>
+    </section>
+
+    <section data-carousel="" aria-label="Recent work" style="padding: 120px 0 0">
+      <div style="max-width: 1080px; margin: 0 auto; padding: 0 24px">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px">
+          <div>
+            <h2 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -0.022em">Recent work</h2>
+            <a href="Work.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; text-decoration: none">See all programmes ›</a>
+          </div>
+          <div style="display: flex; gap: 8px">
+            <button type="button" aria-label="Previous programmes" onClick="{{scrollPrev}}" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--sep); background: var(--card); color: var(--label); cursor: pointer; padding: 0"><svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L2 8l6 6"></path></svg></button>
+            <button type="button" aria-label="Next programmes" onClick="{{scrollNext}}" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--sep); background: var(--card); color: var(--label); cursor: pointer; padding: 0"><svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2l6 6-6 6"></path></svg></button>
+          </div>
+        </div>
+      </div>
+      <div style="max-width: 1128px; margin: 0 auto">
+        <ul data-track="" class="track" style="display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 24px 24px; scroll-padding-left: 24px; list-style: none; margin: 0">
+          <sc-for list="{{recent}}" as="ev" hint-placeholder-count="6">
+            <sc-if value="{{ev.photo}}" hint-placeholder-val="{{false}}">
+              <li style="flex: 0 0 300px; scroll-snap-align: start; min-height: 260px; border-radius: 24px; overflow: hidden; position: relative; box-shadow: var(--shadow)">
+                <img src="{{ev.img}}" alt="{{ev.alt}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+                <p style="position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: 48px 24px 20px; font-size: 15px; font-weight: 600; color: #FFFFFF; background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0))">{{ev.caption}}</p>
+              </li>
+            </sc-if>
+            <sc-if value="{{ev.text}}" hint-placeholder-val="{{true}}">
+            <li style="flex: 0 0 300px; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: space-between; min-height: 260px; padding: 28px; border-radius: 24px; background: var(--card); box-shadow: var(--shadow)">
+              <p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--label3)">{{ev.date}}</p>
+              <div>
+                <h3 style="margin: 0; font-size: 22px; line-height: 1.25; font-weight: 600; letter-spacing: -0.01em">{{ev.title}}</h3>
+                <p style="margin: 8px 0 0; font-size: 15px; color: var(--label3)">{{ev.place}}</p>
+              </div>
+            </li>
+            </sc-if>
+          </sc-for>
+        </ul>
+      </div>
+    </section>
+
+    <section data-carousel="" aria-label="Sangai quiz" style="padding: 120px 0 0">
+      <div style="max-width: 1080px; margin: 0 auto; padding: 0 24px">
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 24px">
+          <div>
+            <h2 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -0.022em">How well do you know the Sangai?</h2>
+            <a href="Discover.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; font-weight: 500; text-decoration: none">Discover more ›</a>
+          </div>
+          <div style="display: flex; gap: 8px">
+            <button type="button" aria-label="Previous questions" onClick="{{scrollPrev}}" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--sep); background: var(--card); color: var(--label); cursor: pointer; padding: 0"><svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L2 8l6 6"></path></svg></button>
+            <button type="button" aria-label="Next questions" onClick="{{scrollNext}}" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--sep); background: var(--card); color: var(--label); cursor: pointer; padding: 0"><svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2l6 6-6 6"></path></svg></button>
+          </div>
+        </div>
+      </div>
+      <div style="max-width: 1128px; margin: 0 auto">
+        <ul data-track="" class="track" style="display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 24px 24px; scroll-padding-left: 24px; list-style: none; margin: 0">
+          <sc-for list="{{quiz}}" as="q" hint-placeholder-count="5">
+            <li style="{{q.cardStyle}}">
+              <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; opacity: 0.8">QUESTION {{q.n}} OF {{q.total}}</p>
+              <p style="margin: 0; flex: 1; font-size: 24px; line-height: 1.25; font-weight: 600; letter-spacing: -0.01em">{{q.q}}</p>
+              <sc-if value="{{q.shown}}" hint-placeholder-val="{{false}}">
+                <div aria-live="polite">
+                  <p style="margin: 0; font-size: 44px; line-height: 1; font-weight: 700; letter-spacing: -0.03em">{{q.a}}</p>
+                  <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.45; opacity: 0.92">{{q.more}}</p>
+                </div>
+              </sc-if>
+              <sc-if value="{{q.hidden}}" hint-placeholder-val="{{true}}">
+                <button type="button" onClick="{{q.reveal}}" style="align-self: flex-start; min-height: 44px; padding: 0 22px; border: 0; border-radius: 999px; background: rgba(255,255,255,0.92); color: #10251A; font-size: 15px; font-weight: 600; cursor: pointer">Reveal the answer</button>
+              </sc-if>
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+    </section>
+
+    <section style="max-width: 1080px; margin: 0 auto; padding: 120px 24px 0; padding-bottom: 120px; text-align: center">
+      <h2 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -0.022em">Stand with the Sangai</h2>
+      <p style="margin: 12px auto 28px; max-width: 30em; color: var(--label2)">Host a programme at your school, partner with us, or support our work.</p>
+      <a href="Contact.dc.html" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 28px; background: var(--tint); color: var(--on-tint); text-decoration: none; border-radius: 999px; font-weight: 600">Get in touch</a>
+    </section>
+  </main>
+  <footer>
+    <div style="max-width: 1080px; margin: 0 auto; padding: 40px 32px 48px; border-top: 1px solid var(--sep); display: flex; flex-wrap: wrap; gap: 8px 32px; justify-content: space-between; font-size: 13px; color: var(--label3)">
+      <p style="margin: 0">© Sangai First Foundation, Manipur · Reg. no. 442 of 02/10/2025, Indian Trusts Act, 1882</p>
+      <a href="https://www.facebook.com/profile.php?id=61573232295835" style="display: inline-flex; align-items: center; min-height: 44px; margin: -12px 0">Facebook</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3400}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { slide: 0, rev: {} }; }
+  scroller(dir) {
+    return (e) => {
+      const t = e.currentTarget.closest('[data-carousel]').querySelector('[data-track]');
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      t.scrollBy({ left: dir * t.clientWidth * 0.8, behavior: reduce ? 'auto' : 'smooth' });
+    };
+  }
+  renderVals() {
+    const raw = [{"img": "../images/deer-hd.jpg", "alt": "A Sangai stag with tall brow antlers standing in grassland", "kicker": "Manipur’s State Animal", "title": "Protecting the Sangai and its floating home.", "label": "The Sangai"}, {"img": "../images/group-hd.jpg", "alt": "Students and teachers at Toubul Government High School holding a Sangai Day banner", "kicker": "Responsible Schools for Sangai", "title": "A new school, almost every month.", "label": "School programmes"}, {"img": "../images/class-hd.jpg", "alt": "A hall full of students in uniform at a sensitisation programme", "kicker": "Sangai Ambassadors", "title": "Young people carrying the message home.", "label": "Students"}];
+    const n = raw.length, cur = this.state.slide;
+    const go = (i) => this.setState({ slide: (i + n) % n });
+    const slides = raw.map((s, i) => ({ ...s, n: i + 1, active: i === cur, current: i === cur ? 'true' : 'false', go: () => go(i),
+      dot: 'display:block;width:8px;height:8px;border-radius:999px;background:' + (i === cur ? '#FFFFFF' : 'rgba(255,255,255,0.45)') }));
+    const recent = [{"text": true, "photo": false, "date": "2 NOV 2026", "title": "Sangai Day at school", "place": "Children Model Academy, Thanga"}, {"text": true, "photo": false, "date": "18 OCT 2026", "title": "15 km Green Ride", "place": "To Keibul Lamjao"}, {"text": false, "photo": true, "img": "../images/class-hd.jpg", "alt": "Students at a school programme", "caption": "Students at one of our school programmes"}, {"text": true, "photo": false, "date": "17 OCT 2026", "title": "Sangai Day at school", "place": "Thanga Higher Secondary School"}, {"text": true, "photo": false, "date": "29 SEP 2026", "title": "Sangai Day at school", "place": "Loktak Christian Model High School"}, {"text": false, "photo": true, "img": "../images/speaker-hd.jpg", "alt": "A trustee speaking at a school programme", "caption": "A talk on the Sangai’s history and ecology"}, {"text": true, "photo": false, "date": "18 JUL 2026", "title": "Uningthou planting", "place": "Paradise Gardening School, Chandpur"}, {"text": true, "photo": false, "date": "11 JUL 2026", "title": "Native tree drive", "place": "Thanga Chingjao Hillock, Loktak"}];
+    const qraw = [{"q": "How many Sangai did the 2026 census find in the wild?", "a": "172", "more": "Down from 260 in 2016. Every one lives in Keibul Lamjao."}, {"q": "What does the name “Sangai” mean?", "a": "The one that waits", "more": "From “sa” (animal) and “ngai” (awaiting): a running stag stops to look back."}, {"q": "How thick is the floating phumdi the Sangai walks on?", "a": "Up to 1.2 m", "more": "Only about a fifth of it sits above the water, enough to carry a deer."}, {"q": "When does the Sangai like to graze?", "a": "Dawn and dusk", "more": "Roughly 4:30 to 8 am and 3 to 6 pm, resting under tall reeds in between."}, {"q": "Which sport was born in Manipur as Sagol Kangjei?", "a": "Polo", "more": "Manipur is known as the birthplace of modern polo."}];
+    const colors = ['#0F3D24', '#0B3A53', '#5B3412', '#1F2F5C', '#3D2A52'];
+    const rev = this.state.rev || {};
+    const quiz = qraw.map((q, i) => ({ ...q, n: i + 1, total: qraw.length, shown: !!rev[i], hidden: !rev[i],
+      reveal: () => this.setState({ rev: { ...rev, [i]: true } }),
+      cardStyle: 'flex:0 0 320px;scroll-snap-align:start;display:flex;flex-direction:column;gap:20px;min-height:340px;padding:28px;border-radius:24px;color:#FFFFFF;background:' + colors[i % colors.length] }));
+    return { slides, recent, quiz, prevSlide: () => go(cur - 1), nextSlide: () => go(cur + 1), scrollPrev: this.scroller(-1), scrollNext: this.scroller(1) };
+  }
+}
+</script>
+</body>
+</html>

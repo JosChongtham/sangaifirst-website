@@ -1,0 +1,6 @@
+.DS_Store
+.claude/
+__pycache__/
+
+# Source documents (brochure, annual report, original photos) stay off the public repo.
+reference/

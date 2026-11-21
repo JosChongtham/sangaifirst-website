@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Contact · Sangai First Foundation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@900&amp;display=swap">
+<style>
+:root{
+  --bg:#FBFBFD; --card:#FFFFFF; --card2:#F2F2F7;
+  --label:#1D1D1F; --label2:#3A3A3C; --label3:#636366;
+  --sep:rgba(60,60,67,0.18);
+  --tint:#008932; --on-tint:#FFFFFF; --tint-fill:#E8F5EC;
+  --glass:rgba(251,251,253,0.72); --glass-edge:rgba(255,255,255,0.9);
+  --shadow:0 10px 40px rgba(0,0,0,0.07);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#000000; --card:#1C1C1E; --card2:#2C2C2E;
+    --label:#F5F5F7; --label2:#D1D1D6; --label3:#AEAEB2;
+    --sep:rgba(84,84,88,0.65);
+    --tint:#30D158; --on-tint:#000000; --tint-fill:rgba(48,209,88,0.14);
+    --glass:rgba(28,28,30,0.66); --glass-edge:rgba(255,255,255,0.12);
+    --shadow:0 10px 40px rgba(0,0,0,0.5);
+  }
+  .engrave{filter:invert(1)}
+}
+@media (prefers-contrast: more){ :root{ --tint:#006B26; --label2:#1C1C1E; --label3:#3A3A3C; --glass:rgba(255,255,255,0.95) } }
+@media (prefers-contrast: more) and (prefers-color-scheme: dark){ :root{ --tint:#4AD968; --label2:#F2F2F7; --label3:#D1D1D6; --glass:rgba(28,28,30,0.95) } }
+@media (prefers-reduced-transparency: reduce){ :root{ --glass:var(--card) } }
+body{margin:0;background:var(--bg)}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+a{color:var(--tint)}a:hover{opacity:0.8}
+a:focus-visible,button:focus-visible{outline:3px solid var(--tint);outline-offset:3px}
+.glassbar{-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%)}
+.track{scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+button{font:inherit}
+</style>
+</helmet>
+<div style="font-family: -apple-system, BlinkMacSystemFont, &quot;SF Pro Text&quot;, Inter, system-ui, sans-serif; color: var(--label); background: var(--bg); font-size: 17px; line-height: 1.5; -webkit-font-smoothing: antialiased">
+  <header style="position: sticky; top: 0; z-index: 10; padding: 12px 16px 0">
+    <nav aria-label="Main" class="glassbar" style="max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 16px; padding: 6px 6px 6px 18px; background: var(--glass); border: 1px solid var(--glass-edge); border-radius: 999px; box-shadow: var(--shadow)">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: var(--label); font-weight: 600; font-size: 16px; letter-spacing: -0.01em">
+        <img class="engrave" src="../images/deer-engraving.png" alt="" style="width: 24px; height: 34px; object-fit: contain">
+        Sangai First Foundation
+      </a>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; font-size: 15px">
+        <a href="Main.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">Home</a>
+        <a href="Discover.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">Discover</a>
+        <a href="Work.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">Our Work</a>
+        <a href="About.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">About</a>
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; margin-left: 6px; background: var(--tint); color: var(--on-tint); text-decoration: none; border-radius: 999px; font-weight: 600">Support us</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section style="max-width: 720px; margin: 0 auto; padding: 96px 24px 120px">
+      <h1 style="margin: 0; font-size: clamp(40px, 5vw, 56px); line-height: 1.05; font-weight: 700; letter-spacing: -0.028em">Stand with the Sangai</h1>
+      <p style="margin: 16px 0 40px; font-size: 20px; color: var(--label2)">To donate, host a programme at your school, or partner with us, write or call. We only use your details to reply.</p>
+      <ul style="list-style: none; margin: 0; padding: 0 28px; background: var(--card); border-radius: 24px; box-shadow: var(--shadow)">
+        <li style="padding: 20px 0; border-bottom: 1px solid var(--sep)"><p style="margin: 0; font-size: 13px; color: var(--label3)">Email</p><a href="mailto:sangaiff2024@gmail.com" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 19px; font-weight: 500">sangaiff2024@gmail.com</a></li>
+        <li style="padding: 20px 0; border-bottom: 1px solid var(--sep)"><p style="margin: 0; font-size: 13px; color: var(--label3)">Phone</p><a href="tel:+919856177030" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 19px; font-weight: 500; margin-right: 20px">+91 98561 77030</a><a href="tel:+918014366698" style="display: inline-flex; align-items: center; min-height: 44px; font-size: 19px; font-weight: 500">+91 80143 66698</a></li>
+        <li style="padding: 20px 0"><p style="margin: 0; font-size: 13px; color: var(--label3)">Address</p><p style="margin: 6px 0 0; font-size: 17px">Nambol Makha Leikai, Nambol Sub-Division<br>Bishnupur District 795134, Manipur, India</p></li>
+      </ul>
+      <a href="mailto:sangaiff2024@gmail.com" style="display: inline-flex; align-items: center; min-height: 50px; margin-top: 32px; padding: 0 28px; background: var(--tint); color: var(--on-tint); text-decoration: none; border-radius: 999px; font-weight: 600">Email us</a>
+    </section>
+  </main>
+  <footer>
+    <div style="max-width: 1080px; margin: 0 auto; padding: 40px 32px 48px; border-top: 1px solid var(--sep); display: flex; flex-wrap: wrap; gap: 8px 32px; justify-content: space-between; font-size: 13px; color: var(--label3)">
+      <p style="margin: 0">© Sangai First Foundation, Manipur · Reg. no. 442 of 02/10/2025, Indian Trusts Act, 1882</p>
+      <a href="https://www.facebook.com/profile.php?id=61573232295835" style="display: inline-flex; align-items: center; min-height: 44px; margin: -12px 0">Facebook</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1200}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

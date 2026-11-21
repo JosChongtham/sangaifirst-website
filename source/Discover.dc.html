@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Discover · Sangai First Foundation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@900&amp;display=swap">
+<style>
+:root{
+  --bg:#FBFBFD; --card:#FFFFFF; --card2:#F2F2F7;
+  --label:#1D1D1F; --label2:#3A3A3C; --label3:#636366;
+  --sep:rgba(60,60,67,0.18);
+  --tint:#008932; --on-tint:#FFFFFF; --tint-fill:#E8F5EC;
+  --glass:rgba(251,251,253,0.72); --glass-edge:rgba(255,255,255,0.9);
+  --shadow:0 10px 40px rgba(0,0,0,0.07);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#000000; --card:#1C1C1E; --card2:#2C2C2E;
+    --label:#F5F5F7; --label2:#D1D1D6; --label3:#AEAEB2;
+    --sep:rgba(84,84,88,0.65);
+    --tint:#30D158; --on-tint:#000000; --tint-fill:rgba(48,209,88,0.14);
+    --glass:rgba(28,28,30,0.66); --glass-edge:rgba(255,255,255,0.12);
+    --shadow:0 10px 40px rgba(0,0,0,0.5);
+  }
+  .engrave{filter:invert(1)}
+}
+@media (prefers-contrast: more){ :root{ --tint:#006B26; --label2:#1C1C1E; --label3:#3A3A3C; --glass:rgba(255,255,255,0.95) } }
+@media (prefers-contrast: more) and (prefers-color-scheme: dark){ :root{ --tint:#4AD968; --label2:#F2F2F7; --label3:#D1D1D6; --glass:rgba(28,28,30,0.95) } }
+@media (prefers-reduced-transparency: reduce){ :root{ --glass:var(--card) } }
+body{margin:0;background:var(--bg)}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+a{color:var(--tint)}a:hover{opacity:0.8}
+a:focus-visible,button:focus-visible{outline:3px solid var(--tint);outline-offset:3px}
+.glassbar{-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%)}
+.track{scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+button{font:inherit}
+</style>
+</helmet>
+<div style="font-family: -apple-system, BlinkMacSystemFont, &quot;SF Pro Text&quot;, Inter, system-ui, sans-serif; color: var(--label); background: var(--bg); font-size: 17px; line-height: 1.5; -webkit-font-smoothing: antialiased">
+  <header style="position: sticky; top: 0; z-index: 10; padding: 12px 16px 0">
+    <nav aria-label="Main" class="glassbar" style="max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 16px; padding: 6px 6px 6px 18px; background: var(--glass); border: 1px solid var(--glass-edge); border-radius: 999px; box-shadow: var(--shadow)">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: var(--label); font-weight: 600; font-size: 16px; letter-spacing: -0.01em">
+        <img class="engrave" src="../images/deer-engraving.png" alt="" style="width: 24px; height: 34px; object-fit: contain">
+        Sangai First Foundation
+      </a>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; font-size: 15px">
+        <a href="Main.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">Home</a>
+        <a href="Discover.dc.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label); font-weight: 600; text-decoration: none">Discover</a>
+        <a href="Work.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">Our Work</a>
+        <a href="About.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">About</a>
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; margin-left: 6px; background: var(--tint); color: var(--on-tint); text-decoration: none; border-radius: 999px; font-weight: 600">Support us</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section style="max-width: 1080px; margin: 0 auto; padding: 72px 24px 32px">
+      <h1 style="margin: 0; font-size: clamp(40px, 5vw, 56px); line-height: 1.04; font-weight: 700; letter-spacing: -0.03em">Discover the Sangai’s world</h1>
+      <p style="margin: 14px 0 0; max-width: 34em; font-size: 20px; color: var(--label2)">A deer that looks back, islands that float, and the land that holds them.</p>
+    </section>
+
+    <section aria-roledescription="carousel" aria-label="Discover" style="max-width: 1080px; margin: 0 auto; padding: 0 24px">
+      <div style="position: relative; min-height: 560px; border-radius: 32px; overflow: hidden">
+        <sc-for list="{{dslides}}" as="s" hint-placeholder-count="1">
+          <sc-if value="{{s.active}}" hint-placeholder-val="{{true}}">
+            <div role="group" aria-roledescription="slide" aria-label="{{s.label}}" style="{{s.bgStyle}}">
+              <sc-if value="{{s.hasImg}}" hint-placeholder-val="{{false}}">
+                <img src="{{s.img}}" alt="{{s.alt}}" style="position: absolute; top: 0; right: 0; width: 62%; height: 100%; object-fit: cover; object-position: 40% 35%">
+                <div aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: 38%; width: 22%; background: linear-gradient(to right, #0F3D24, rgba(15,61,36,0))"></div>
+              </sc-if>
+              <sc-if value="{{s.noImg}}" hint-placeholder-val="{{false}}">
+                <img class="engrave-art" src="../images/deer-engraving.png" alt="" style="position: absolute; right: -40px; bottom: -40px; width: 420px; opacity: 0.12; filter: invert(1)">
+              </sc-if>
+              <div style="position: relative; max-width: 560px; padding: 56px 48px 120px; color: #FFFFFF">
+                <p style="margin: 0 0 12px; font-size: 15px; font-weight: 600; opacity: 0.85">{{s.kicker}}</p>
+                <h2 style="margin: 0; font-size: clamp(36px, 4.6vw, 56px); line-height: 1.04; font-weight: 700; letter-spacing: -0.03em">{{s.title}}</h2>
+                <p style="margin: 18px 0 0; font-size: 18px; line-height: 1.5; opacity: 0.92">{{s.text}}</p>
+                <ul style="list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px">
+                  <sc-for list="{{s.chips}}" as="c" hint-placeholder-count="3">
+                    <li style="padding: 6px 14px; border-radius: 999px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.28); font-size: 14px; font-weight: 600">{{c}}</li>
+                  </sc-for>
+                </ul>
+                <a href="{{s.url}}" style="display: inline-flex; align-items: center; min-height: 44px; margin-top: 10px; color: #FFFFFF; font-size: 13px; font-weight: 600; opacity: 0.85">Source: {{s.src}} ↗</a>
+              </div>
+            </div>
+          </sc-if>
+        </sc-for>
+        <div style="position: absolute; left: 40px; right: 40px; bottom: 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+          <div role="tablist" aria-label="Topics" style="display: flex; flex-wrap: wrap; gap: 6px">
+            <sc-for list="{{dslides}}" as="s" hint-placeholder-count="4">
+              <button type="button" role="tab" aria-selected="{{s.current}}" onClick="{{s.go}}" style="{{s.tabStyle}}">{{s.label}}</button>
+            </sc-for>
+          </div>
+          <div class="glassbar" style="display: flex; gap: 4px; padding: 4px; border-radius: 999px; background: rgba(0,0,0,0.3)">
+            <button type="button" aria-label="Previous topic" onClick="{{prevSlide}}" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; border-radius: 999px; background: transparent; color: #FFFFFF; cursor: pointer; padding: 0"><svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L2 8l6 6"></path></svg></button>
+            <button type="button" aria-label="Next topic" onClick="{{nextSlide}}" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 0; border-radius: 999px; background: transparent; color: #FFFFFF; cursor: pointer; padding: 0"><svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2l6 6-6 6"></path></svg></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="max-width: 1080px; margin: 0 auto; padding: 120px 24px 0">
+      <h2 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -0.022em">A comeback now slipping away</h2>
+      <p style="margin: 8px 0 32px; max-width: 38em; color: var(--label2)">Brought back from near extinction in the 1950s, the Sangai grew to 260 by 2016. The 2026 census found only 172, as its floating home thins and deer drown where the phumdi gives way.</p>
+      <div style="padding: 40px 32px 32px; border-radius: 28px; background: var(--card)">
+        <ol aria-label="Sangai population by year" style="list-style: none; margin: 0; padding: 0; display: flex; align-items: flex-end; gap: 16px; min-height: 340px">
+          <li style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 10px; text-align: center">
+            <span style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em">6</span>
+            <span aria-hidden="true" style="display: block; width: 100%; max-width: 88px; height: 5px; border-radius: 12px 12px 4px 4px; background: var(--tint)"></span>
+            <span style="font-size: 15px; font-weight: 600">1953</span>
+            <span style="font-size: 13px; line-height: 1.3; color: var(--label3)">Six found after near extinction</span>
+          </li>
+          <li style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 10px; text-align: center">
+            <span style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em">14</span>
+            <span aria-hidden="true" style="display: block; width: 100%; max-width: 88px; height: 12px; border-radius: 12px 12px 4px 4px; background: var(--tint)"></span>
+            <span style="font-size: 15px; font-weight: 600">1975</span>
+            <span style="font-size: 13px; line-height: 1.3; color: var(--label3)">First aerial census</span>
+          </li>
+          <li style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 10px; text-align: center">
+            <span style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em">155</span>
+            <span aria-hidden="true" style="display: block; width: 100%; max-width: 88px; height: 131px; border-radius: 12px 12px 4px 4px; background: var(--tint)"></span>
+            <span style="font-size: 15px; font-weight: 600">1995</span>
+            <span style="font-size: 13px; line-height: 1.3; color: var(--label3)">About 155</span>
+          </li>
+          <li style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 10px; text-align: center">
+            <span style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em">260</span>
+            <span aria-hidden="true" style="display: block; width: 100%; max-width: 88px; height: 220px; border-radius: 12px 12px 4px 4px; background: var(--tint)"></span>
+            <span style="font-size: 15px; font-weight: 600">2016</span>
+            <span style="font-size: 13px; line-height: 1.3; color: var(--label3)">Peak count</span>
+          </li>
+          <li style="flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 10px; text-align: center">
+            <span style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em">172</span>
+            <span aria-hidden="true" style="display: block; width: 100%; max-width: 88px; height: 146px; border-radius: 12px 12px 4px 4px; background: #C2410C"></span>
+            <span style="font-size: 15px; font-weight: 600">2026</span>
+            <span style="font-size: 13px; line-height: 1.3; color: var(--label3)">Latest census: down by a third</span>
+          </li>
+        </ol>
+      </div>
+      <p style="margin: 16px 8px 0; font-size: 15px; color: var(--label2)">Independent monitoring by the Wildlife Institute of India paints an even starker picture: 91 Sangai in 2006, 76 in 2019 and 64 in 2023.</p>
+      <p style="margin: 8px 8px 0; font-size: 13px; color: var(--label3)">Manipur Forest Department counts. Sources: <a href="https://en.wikipedia.org/wiki/Sangai">Wikipedia</a>, <a href="https://www.easternmirrornagaland.com/hog-deer-outnumber-sangai-in-keibul-lamjao-national-park">Eastern Mirror (2026 census)</a>, <a href="https://indiawildlifenews.com/2026/06/14/sangai-manipur-eld-deer-keibul-lamjao-antlers-antelopes-part-9/">India Wildlife News (WII figures)</a>, <a href="https://www.downtoearth.org.in/wildlife-biodiversity/drowning-in-its-home">Down To Earth</a>.</p>
+    </section>
+
+    <section style="max-width: 1080px; margin: 0 auto; padding: 120px 24px 0">
+      <h2 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -0.022em; margin-bottom: 24px">Loktak by the numbers</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+        <div style="padding: 28px; border-radius: 24px; background: var(--card)">
+          <p style="margin: 0; font-size: 44px; line-height: 1; font-weight: 700; letter-spacing: -0.035em">40 km²</p>
+          <p style="margin: 10px 0 0; font-size: 15px; color: var(--label2)">of floating grassland in Keibul Lamjao</p>
+        </div>
+        <div style="padding: 28px; border-radius: 24px; background: var(--card)">
+          <p style="margin: 0; font-size: 44px; line-height: 1; font-weight: 700; letter-spacing: -0.035em">287 km²</p>
+          <p style="margin: 10px 0 0; font-size: 15px; color: var(--label2)">typical area of Loktak Lake</p>
+        </div>
+        <div style="padding: 28px; border-radius: 24px; background: var(--card)">
+          <p style="margin: 0; font-size: 44px; line-height: 1; font-weight: 700; letter-spacing: -0.035em">1.2 m</p>
+          <p style="margin: 10px 0 0; font-size: 15px; color: var(--label2)">the thickest phumdi</p>
+        </div>
+        <div style="padding: 28px; border-radius: 24px; background: var(--card)">
+          <p style="margin: 0; font-size: 44px; line-height: 1; font-weight: 700; letter-spacing: -0.035em">100,000</p>
+          <p style="margin: 10px 0 0; font-size: 15px; color: var(--label2)">people living around the lake</p>
+        </div>
+      </div>
+      <p style="margin: 12px 8px 0; font-size: 13px; color: var(--label3)">Source: <a href="https://en.wikipedia.org/wiki/Loktak_Lake">Wikipedia, Loktak Lake</a> and <a href="https://en.wikipedia.org/wiki/Keibul_Lamjao_National_Park">Keibul Lamjao National Park</a>.</p>
+    </section>
+
+    <section style="max-width: 1080px; margin: 0 auto; padding: 120px 24px 0">
+      <h2 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -0.022em">Manipur’s state symbols</h2>
+      <p style="margin: 8px 0 24px; color: var(--label2)">Five living emblems, with the Sangai at the head.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px">
+        <div style="position: relative; overflow: hidden; min-height: 220px; padding: 24px; border-radius: 24px; background: #0F3D24; color: #FFFFFF; display: flex; flex-direction: column; justify-content: flex-end"><img src="../images/deer-hd.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55">
+          <p style="position: relative; margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85">State Animal</p>
+          <p style="position: relative; margin: 4px 0 0; font-size: 26px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">Sangai</p>
+          <p style="position: relative; margin: 4px 0 0; font-size: 15px; font-style: italic; opacity: 0.9">Rucervus eldii eldii</p>
+        </div>
+        <div style="position: relative; overflow: hidden; min-height: 220px; padding: 24px; border-radius: 24px; background: #1F2F5C; color: #FFFFFF; display: flex; flex-direction: column; justify-content: flex-end">
+          <p style="position: relative; margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85">State Bird</p>
+          <p style="position: relative; margin: 4px 0 0; font-size: 26px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">Nongyeen</p>
+          <p style="position: relative; margin: 4px 0 0; font-size: 15px; font-style: italic; opacity: 0.9">Mrs Hume’s pheasant</p>
+        </div>
+        <div style="position: relative; overflow: hidden; min-height: 220px; padding: 24px; border-radius: 24px; background: #7A2E4A; color: #FFFFFF; display: flex; flex-direction: column; justify-content: flex-end">
+          <p style="position: relative; margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85">State Flower</p>
+          <p style="position: relative; margin: 4px 0 0; font-size: 26px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">Shirui lily</p>
+          <p style="position: relative; margin: 4px 0 0; font-size: 15px; font-style: italic; opacity: 0.9">Lilium mackliniae</p>
+        </div>
+        <div style="position: relative; overflow: hidden; min-height: 220px; padding: 24px; border-radius: 24px; background: #3E4A1E; color: #FFFFFF; display: flex; flex-direction: column; justify-content: flex-end">
+          <p style="position: relative; margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85">State Tree</p>
+          <p style="position: relative; margin: 4px 0 0; font-size: 26px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">Uningthou</p>
+          <p style="position: relative; margin: 4px 0 0; font-size: 15px; font-style: italic; opacity: 0.9">Phoebe hainesiana</p>
+        </div>
+        <div style="position: relative; overflow: hidden; min-height: 220px; padding: 24px; border-radius: 24px; background: #0B3A53; color: #FFFFFF; display: flex; flex-direction: column; justify-content: flex-end">
+          <p style="position: relative; margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85">State Fish</p>
+          <p style="position: relative; margin: 4px 0 0; font-size: 26px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em">Pengba</p>
+          <p style="position: relative; margin: 4px 0 0; font-size: 15px; font-style: italic; opacity: 0.9">Osteobrama belangeri</p>
+        </div>
+      </div>
+      <p style="margin: 12px 8px 0; font-size: 13px; color: var(--label3)">Source: <a href="https://en.wikipedia.org/wiki/Manipur">Wikipedia, Manipur</a>.</p>
+    </section>
+
+    <section style="max-width: 1080px; margin: 0 auto; padding: 120px 24px 0; padding-bottom: 120px; text-align: center">
+      <h2 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -0.022em">Help keep these stories alive</h2>
+      <p style="margin: 12px auto 28px; max-width: 30em; color: var(--label2)">Invite us to your school, or support our work for the Sangai.</p>
+      <a href="Contact.dc.html" style="display: inline-flex; align-items: center; min-height: 50px; padding: 0 28px; background: var(--tint); color: var(--on-tint); text-decoration: none; border-radius: 999px; font-weight: 600">Get in touch</a>
+    </section>
+  </main>
+  <footer>
+    <div style="max-width: 1080px; margin: 0 auto; padding: 40px 32px 48px; border-top: 1px solid var(--sep); display: flex; flex-wrap: wrap; gap: 8px 32px; justify-content: space-between; font-size: 13px; color: var(--label3)">
+      <p style="margin: 0">© Sangai First Foundation, Manipur · Reg. no. 442 of 02/10/2025, Indian Trusts Act, 1882</p>
+      <a href="https://www.facebook.com/profile.php?id=61573232295835" style="display: inline-flex; align-items: center; min-height: 44px; margin: -12px 0">Facebook</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2900}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { slide: 0 }; }
+  renderVals() {
+    const raw = [{"label": "The Sangai", "bg": "#0F3D24", "img": "../images/deer-hd.jpg", "alt": "A Sangai stag with tall brow antlers in grassland", "kicker": "The dancing deer", "title": "Found nowhere else on Earth.", "text": "The Sangai is Manipur’s State Animal, a subspecies of Eld’s deer that lives in the wild only in Keibul Lamjao. Its name joins “sa” (animal) and “ngai” (awaiting): a running stag stops to look back.", "chips": ["Endangered · IUCN", "Schedule I · India", "Antlers 100–110 cm"], "src": "Wikipedia · WWF-India", "url": "https://en.wikipedia.org/wiki/Sangai"}, {"label": "Phumdi", "bg": "#0B3A53", "img": "", "alt": "", "kicker": "Loktak Lake", "title": "Islands that float.", "text": "Loktak, the largest freshwater lake in Northeast India, is dotted with phumdi: floating mats of plants, soil and organic matter. About a fifth of each mat rises above the water, strong enough to carry a deer.", "chips": ["~287 km² lake", "Phumdi up to 1.2 m thick", "Ramsar site since 1990"], "src": "Wikipedia", "url": "https://en.wikipedia.org/wiki/Loktak_Lake"}, {"label": "Keibul Lamjao", "bg": "#3E4A1E", "img": "", "alt": "", "kicker": "Keibul Lamjao National Park", "title": "The world’s only floating national park.", "text": "About 40 km² of floating grassland on Loktak’s southern shore, home to the last wild Sangai. The Ithai Barrage, built in 1983, keeps water high in the dry months, and the phumdi is thinning.", "chips": ["Sanctuary 1966", "National park 1977", "Hog deer, otters, cranes"], "src": "Wikipedia", "url": "https://en.wikipedia.org/wiki/Keibul_Lamjao_National_Park"}, {"label": "Manipur", "bg": "#5B3412", "img": "", "alt": "", "kicker": "Manipur", "title": "The Land of Jewels.", "text": "The birthplace of modern polo, Sagol Kangjei, and of the Raas Lila dance. In Meitei tradition, killing a Sangai is a grave sin, and its antlered head adorns the royal boat Hiyang Hiren.", "chips": ["Polo’s birthplace", "Raas Lila", "Hiyang Hiren"], "src": "Manipur Tourism · Wikipedia", "url": "https://manipurtourism.gov.in/about-us/"}];
+    const n = raw.length, cur = this.state.slide;
+    const go = (i) => this.setState({ slide: (i + n) % n });
+    const dslides = raw.map((s, i) => ({ ...s, active: i === cur, current: i === cur ? 'true' : 'false', go: () => go(i),
+      hasImg: !!s.img, noImg: !s.img,
+      bgStyle: 'position:absolute;inset:0;background:' + s.bg,
+      tabStyle: 'min-height:44px;padding:0 16px;border-radius:999px;cursor:pointer;font-size:14px;font-weight:600;border:1px solid rgba(255,255,255,0.35);' + (i === cur ? 'background:#FFFFFF;color:#111111' : 'background:rgba(0,0,0,0.2);color:#FFFFFF') }));
+    return { dslides, prevSlide: () => go(cur - 1), nextSlide: () => go(cur + 1) };
+  }
+}
+</script>
+</body>
+</html>

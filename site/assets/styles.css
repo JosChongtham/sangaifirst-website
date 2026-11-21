@@ -1,0 +1,147 @@
+:root{
+  --bg:#FBFBFD; --card:#FFFFFF; --card2:#F2F2F7;
+  --label:#1D1D1F; --label2:#3A3A3C; --label3:#636366;
+  --sep:rgba(60,60,67,0.18);
+  --tint:#008932; --on-tint:#FFFFFF; --tint-fill:#E8F5EC;
+  --glass:rgba(251,251,253,0.72); --glass-edge:rgba(255,255,255,0.9);
+  --shadow:0 10px 40px rgba(0,0,0,0.07);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#000000; --card:#1C1C1E; --card2:#2C2C2E;
+    --label:#F5F5F7; --label2:#D1D1D6; --label3:#AEAEB2;
+    --sep:rgba(84,84,88,0.65);
+    --tint:#30D158; --on-tint:#000000; --tint-fill:rgba(48,209,88,0.14);
+    --glass:rgba(28,28,30,0.66); --glass-edge:rgba(255,255,255,0.12);
+    --shadow:0 10px 40px rgba(0,0,0,0.5);
+  }
+  .engrave{filter:invert(1)}
+}
+@media (prefers-contrast: more){ :root{ --tint:#006B26; --label2:#1C1C1E; --label3:#3A3A3C; --glass:rgba(255,255,255,0.95) } }
+@media (prefers-contrast: more) and (prefers-color-scheme: dark){ :root{ --tint:#4AD968; --label2:#F2F2F7; --label3:#D1D1D6; --glass:rgba(28,28,30,0.95) } }
+@media (prefers-reduced-transparency: reduce){ :root{ --glass:var(--card) } }
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--label);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Inter,system-ui,sans-serif;font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+main{overflow-x:clip}
+img{max-width:100%}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+a{color:var(--tint)} a:hover{opacity:0.8}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--tint);outline-offset:3px}
+.glassbar{-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%)}
+.track{scrollbar-width:none;padding-left:24px;padding-right:24px}
+.track::-webkit-scrollbar{display:none}
+button{font:inherit}
+.skip{position:absolute;left:16px;top:-80px;z-index:20;padding:10px 18px;border-radius:999px;background:var(--tint);color:var(--on-tint);font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+
+/* header: a glass pill; the round logo badge and the CTA sit 8px in from each end */
+.site-header{position:sticky;top:0;z-index:10;padding:12px 16px 0}
+.nav{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;padding:8px;background:var(--glass);border-radius:999px;box-shadow:var(--shadow)}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;min-height:44px;padding-right:12px;border-radius:999px;text-decoration:none;color:var(--label);font-weight:600;font-size:16px;letter-spacing:-0.01em;white-space:nowrap}
+.brand:hover{opacity:1}
+.brand-mark{flex:none;display:block;width:40px;height:44px;overflow:hidden}
+/* head and antlers of the engraving on a transparent background; the neck fades out at the bottom */
+.brand-mark img{display:block;width:100%;height:100%;object-fit:cover;object-position:20% 0;-webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent);mask-image:linear-gradient(to bottom,#000 72%,transparent)}
+.brand-name{overflow:hidden;text-overflow:ellipsis}
+.nav-menu{display:flex;align-items:center;margin-left:auto}
+.nav-links{display:flex;align-items:center;margin:0;padding:0;list-style:none;font-size:15px}
+.nav-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 9px;white-space:nowrap;border-radius:999px;color:var(--label2);font-weight:500;text-decoration:none}
+.nav-links a:hover{opacity:1;color:var(--label)}
+.nav-links a[aria-current="page"]{color:var(--label);font-weight:600}
+/* CTA: a quiet tonal pill, 36px tall to sit inside the bar, with a full 44px tap area */
+.nav-cta{position:relative;display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 16px;margin:4px 0 4px 10px;background:var(--tint-fill);color:var(--tint);text-decoration:none;border-radius:999px;font-weight:600;font-size:15px;white-space:nowrap}
+.nav-cta::after{content:"";position:absolute;inset:-4px}
+.nav-cta:hover{opacity:1;background:var(--tint);color:var(--on-tint)}
+.nav-cta[aria-current="page"]{background:var(--tint);color:var(--on-tint)}
+@media (max-width: 760px){
+  /* phones: badge + name + Support us on top, the four links in a row underneath */
+  .nav{border-radius:30px;padding:8px 8px 2px}
+  .nav-menu{display:contents}
+  .brand{flex:1 1 0;gap:10px;padding-right:0;white-space:normal}
+  .brand-name{font-size:15px;line-height:1.15;max-width:9.5em;overflow:visible}
+  .nav-cta{padding:0 14px;margin:4px 0}
+  .nav-links{order:3;flex:1 1 100%;margin:0 0 0 50px;justify-content:space-between} /* 50px = logo 40 + gap 10: starts under the name */
+  .nav-links li:first-child a{padding-left:0}
+  .nav-links li:last-child a{padding-right:0}
+}
+@media (min-width: 481px) and (max-width: 760px){ .nav-links{justify-content:flex-start;gap:14px} }
+@media (max-width: 370px){ .nav-links{font-size:14px} .nav-links a{padding:0 4px} }
+@media (max-width: 330px){ .nav-links{font-size:13px} }
+
+/* deer watermark: the engraving, large and faint, peeking from behind carousels and cards */
+.has-wm{position:relative;isolation:isolate}
+.wm{position:absolute;z-index:-1;height:auto;max-width:none;pointer-events:none;user-select:none;-webkit-user-select:none;opacity:0.07}
+@media (prefers-color-scheme: dark){ .wm{filter:invert(1);opacity:0.09} }
+.wm-right{right:-70px;top:24px;width:360px}
+.wm-left{left:-90px;top:40px;width:340px;transform:scaleX(-1)}
+.wm-center{left:50%;top:24px;width:300px;transform:translateX(-50%);opacity:0.05}
+.card-wm{position:relative;isolation:isolate;overflow:hidden}
+.card-wm .wm{right:-48px;bottom:-70px;width:220px;filter:invert(1);opacity:0.13}
+@media (max-width: 720px){
+  .wm-right{right:-90px;width:260px}
+  .wm-left{left:-100px;width:240px}
+  .wm-center{width:220px}
+}
+
+/* programme details: a button on the card opens a dialog */
+.ev-more{align-self:flex-start;display:inline-flex;align-items:center;gap:4px;min-height:44px;margin:-8px 0 -12px;padding:0;border:0;background:none;color:var(--tint);font-size:15px;font-weight:600;cursor:pointer}
+.ev-more:hover{opacity:0.8}
+.dlg{width:min(600px,calc(100% - 32px));max-height:min(86vh,760px);margin:auto;padding:0;border:0;border-radius:28px;background:var(--card);color:var(--label);box-shadow:0 30px 80px rgba(0,0,0,0.35);overflow:auto}
+.dlg::backdrop{background:rgba(0,0,0,0.42);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+@media (prefers-reduced-motion: no-preference){ .dlg[open]{animation:dlg-in .22s ease-out} @keyframes dlg-in{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}} }
+.dlg-body{position:relative;padding:32px 32px 28px}
+.dlg-close{position:absolute;top:16px;right:16px;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;border-radius:999px;background:var(--card2);color:var(--label);cursor:pointer}
+.dlg-date{margin:0;font-size:13px;font-weight:600;letter-spacing:0.04em;color:var(--tint)}
+.dlg-title{margin:6px 56px 0 0;font-size:28px;line-height:1.15;font-weight:700;letter-spacing:-0.02em}
+.dlg-place{margin:6px 0 0;font-size:15px;color:var(--label3)}
+.dlg-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin:24px 0 0}
+.dlg-stat{padding:14px 16px;border-radius:18px;background:var(--tint-fill)}
+.dlg-n{margin:0;font-size:28px;line-height:1;font-weight:700;letter-spacing:-0.03em;color:var(--tint)}
+.dlg-l{margin:6px 0 0;font-size:13px;color:var(--label2)}
+.dlg-h{margin:28px 0 10px;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--label3)}
+.dlg-points{margin:0;padding:0;list-style:none}
+.dlg-points li{position:relative;padding:10px 0 10px 22px;border-top:1px solid var(--sep);font-size:16px;line-height:1.45;color:var(--label2)}
+.dlg-points li:first-child{border-top:0;padding-top:0}
+.dlg-points li::before{content:"";position:absolute;left:2px;top:19px;width:8px;height:8px;border-radius:999px;background:var(--tint)}
+.dlg-points li:first-child::before{top:9px}
+.dlg-who{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.dlg-who li{padding:6px 12px;border-radius:999px;background:var(--card2);font-size:14px;color:var(--label2)}
+.dlg-src{margin:24px 0 0;font-size:13px;color:var(--label3)}
+@media (max-width: 520px){ .dlg-body{padding:28px 20px 24px} .dlg-title{font-size:24px} }
+
+/* stateful controls (state lives in aria attributes, set by site.js) */
+.dot span{display:block;width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,0.45)}
+.dot[aria-current="true"] span{background:#FFFFFF}
+.dtab{min-height:44px;padding:0 16px;border-radius:999px;cursor:pointer;font-size:14px;font-weight:600;border:1px solid rgba(255,255,255,0.35);background:rgba(0,0,0,0.2);color:#FFFFFF}
+.dtab[aria-selected="true"]{background:#FFFFFF;color:#111111}
+.seg{min-height:40px;padding:0 20px;border:0;border-radius:999px;cursor:pointer;font-size:15px;font-weight:600;background:transparent;color:var(--label2)}
+.seg[aria-pressed="true"]{background:var(--card);color:var(--label);box-shadow:0 1px 4px rgba(0,0,0,0.12)}
+.answer:focus{outline:none}
+
+/* narrow: Discover slide text sits over a dimmed full-bleed photo */
+@media (max-width: 900px){
+  .dslide{position:relative !important;min-height:600px}
+  .dslide-img{width:100% !important;opacity:0.35}
+  .dslide-fade{display:none}
+  .dslide-body{padding-bottom:140px !important}
+}
+
+/* phone layout */
+@media (max-width: 720px){
+  .hero{height:520px !important}
+  .hero-cap{padding:96px 24px 96px !important}
+  .hero-ctrl{right:50% !important;transform:translateX(50%);bottom:20px !important}
+  .split{grid-template-columns:1fr !important}
+  .split img{height:240px !important}
+  .dslide-body{padding:40px 24px 200px !important}
+  .dctrl{left:24px !important;right:24px !important}
+  .clip{height:510px !important}
+  .clip-text{columns:1 !important}
+  .pad-card{padding:28px 24px !important}
+  .bars{gap:8px !important}
+  .bars .lab{display:none}
+}

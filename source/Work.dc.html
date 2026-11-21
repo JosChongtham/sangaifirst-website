@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Our work · Sangai First Foundation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@900&amp;display=swap">
+<style>
+:root{
+  --bg:#FBFBFD; --card:#FFFFFF; --card2:#F2F2F7;
+  --label:#1D1D1F; --label2:#3A3A3C; --label3:#636366;
+  --sep:rgba(60,60,67,0.18);
+  --tint:#008932; --on-tint:#FFFFFF; --tint-fill:#E8F5EC;
+  --glass:rgba(251,251,253,0.72); --glass-edge:rgba(255,255,255,0.9);
+  --shadow:0 10px 40px rgba(0,0,0,0.07);
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#000000; --card:#1C1C1E; --card2:#2C2C2E;
+    --label:#F5F5F7; --label2:#D1D1D6; --label3:#AEAEB2;
+    --sep:rgba(84,84,88,0.65);
+    --tint:#30D158; --on-tint:#000000; --tint-fill:rgba(48,209,88,0.14);
+    --glass:rgba(28,28,30,0.66); --glass-edge:rgba(255,255,255,0.12);
+    --shadow:0 10px 40px rgba(0,0,0,0.5);
+  }
+  .engrave{filter:invert(1)}
+}
+@media (prefers-contrast: more){ :root{ --tint:#006B26; --label2:#1C1C1E; --label3:#3A3A3C; --glass:rgba(255,255,255,0.95) } }
+@media (prefers-contrast: more) and (prefers-color-scheme: dark){ :root{ --tint:#4AD968; --label2:#F2F2F7; --label3:#D1D1D6; --glass:rgba(28,28,30,0.95) } }
+@media (prefers-reduced-transparency: reduce){ :root{ --glass:var(--card) } }
+body{margin:0;background:var(--bg)}
+@media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
+a{color:var(--tint)}a:hover{opacity:0.8}
+a:focus-visible,button:focus-visible{outline:3px solid var(--tint);outline-offset:3px}
+.glassbar{-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%)}
+.track{scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+button{font:inherit}
+</style>
+</helmet>
+<div style="font-family: -apple-system, BlinkMacSystemFont, &quot;SF Pro Text&quot;, Inter, system-ui, sans-serif; color: var(--label); background: var(--bg); font-size: 17px; line-height: 1.5; -webkit-font-smoothing: antialiased">
+  <header style="position: sticky; top: 0; z-index: 10; padding: 12px 16px 0">
+    <nav aria-label="Main" class="glassbar" style="max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 16px; padding: 6px 6px 6px 18px; background: var(--glass); border: 1px solid var(--glass-edge); border-radius: 999px; box-shadow: var(--shadow)">
+      <a href="Main.dc.html" style="display: flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; color: var(--label); font-weight: 600; font-size: 16px; letter-spacing: -0.01em">
+        <img class="engrave" src="../images/deer-engraving.png" alt="" style="width: 24px; height: 34px; object-fit: contain">
+        Sangai First Foundation
+      </a>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; font-size: 15px">
+        <a href="Main.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">Home</a>
+        <a href="Discover.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">Discover</a>
+        <a href="Work.dc.html" aria-current="page" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label); font-weight: 600; text-decoration: none">Our Work</a>
+        <a href="About.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--label2); font-weight: 500; text-decoration: none">About</a>
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; margin-left: 6px; background: var(--tint); color: var(--on-tint); text-decoration: none; border-radius: 999px; font-weight: 600">Support us</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section style="max-width: 1080px; margin: 0 auto; padding: 96px 24px 0">
+      <h1 style="margin: 0; font-size: clamp(40px, 5vw, 56px); line-height: 1.05; font-weight: 700; letter-spacing: -0.028em">Our work</h1>
+      <p style="margin: 16px 0 0; max-width: 34em; font-size: 20px; color: var(--label2)">Talks, quizzes, books and a pledge, in a different school almost every month.</p>
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-top: 48px">
+        <img src="../images/class-hd.jpg" alt="A hall full of students at a sensitisation programme" style="width: 100%; height: 360px; object-fit: cover; border-radius: 28px">
+        <img src="../images/speaker-hd.jpg" alt="A trustee speaking at a school programme" style="width: 100%; height: 360px; object-fit: cover; border-radius: 28px">
+      </div>
+    </section>
+
+    <section data-carousel="" aria-label="Programmes" style="padding: 64px 0 0">
+      <div style="max-width: 1080px; margin: 0 auto; padding: 0 24px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+        <div role="group" aria-label="Year" style="display: inline-flex; padding: 3px; border-radius: 999px; background: var(--card2)">
+          <sc-for list="{{years}}" as="y" hint-placeholder-count="2">
+            <button type="button" aria-pressed="{{y.pressed}}" onClick="{{y.pick}}" style="{{y.style}}">{{y.label}}</button>
+          </sc-for>
+        </div>
+        <div style="display: flex; gap: 8px">
+            <button type="button" aria-label="Previous programmes" onClick="{{scrollPrev}}" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--sep); background: var(--card); color: var(--label); cursor: pointer; padding: 0"><svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L2 8l6 6"></path></svg></button>
+            <button type="button" aria-label="Next programmes" onClick="{{scrollNext}}" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--sep); background: var(--card); color: var(--label); cursor: pointer; padding: 0"><svg aria-hidden="true" width="10" height="16" viewBox="0 0 10 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2l6 6-6 6"></path></svg></button>
+          </div>
+      </div>
+      <div style="max-width: 1128px; margin: 0 auto">
+        <ul data-track="" class="track" style="display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 24px 24px; scroll-padding-left: 24px; list-style: none; margin: 0">
+          <sc-for list="{{events}}" as="ev" hint-placeholder-count="6">
+            <li style="flex: 0 0 340px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 16px; min-height: 300px; padding: 28px; border-radius: 24px; background: var(--card); box-shadow: var(--shadow)">
+              <p style="margin: 0; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--tint)">{{ev.date}}</p>
+              <div style="flex: 1">
+                <h2 style="margin: 0; font-size: 22px; line-height: 1.25; font-weight: 600; letter-spacing: -0.01em">{{ev.title}}</h2>
+                <p style="margin: 6px 0 0; font-size: 15px; color: var(--label3)">{{ev.place}}</p>
+              </div>
+              <p style="margin: 0; font-size: 15px; line-height: 1.45; color: var(--label2)">{{ev.note}}</p>
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+    </section>
+
+    <section style="max-width: 1080px; margin: 0 auto; padding: 120px 24px 0">
+      <figure style="margin: 0">
+        <img src="../images/group-hd.jpg" alt="Students and teachers at Toubul Government High School holding a Sangai Day banner" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 28px">
+        <figcaption style="margin-top: 12px; font-size: 13px; color: var(--label3)">Sangaigi Numit at Toubul Government High School, 27 October 2025.</figcaption>
+      </figure>
+    </section>
+
+    <section style="max-width: 1080px; margin: 0 auto; padding: 120px 24px 0; padding-bottom: 120px">
+      <h2 style="margin: 0; font-size: 34px; line-height: 1.15; font-weight: 700; letter-spacing: -0.022em; margin-bottom: 24px">News</h2>
+      <ul style="list-style: none; margin: 0; padding: 0 28px; background: var(--card); border-radius: 24px">
+        <li style="padding: 22px 0; border-bottom: 1px solid var(--sep)"><p style="margin: 0; font-size: 13px; color: var(--label3)">5 June 2026</p><p style="margin: 2px 0 0; font-weight: 600">Dr Khangembam Shamungou receives the Lifetime Achievement in Environment Award</p></li>
+        <li style="padding: 22px 0; border-bottom: 1px solid var(--sep)"><p style="margin: 0; font-size: 13px; color: var(--label3)">5 June 2026</p><p style="margin: 2px 0 0; font-weight: 600">Kumam Jugeshor receives the Ningombam Pheiraba Award 2026</p></li>
+        <li style="padding: 22px 0"><p style="margin: 0; font-size: 13px; color: var(--label3)">23 May 2026</p><p style="margin: 2px 0 0; font-weight: 600">Dr Shamungou’s 23rd book, “Ningsingli Ngasisu”, is released</p></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <div style="max-width: 1080px; margin: 0 auto; padding: 40px 32px 48px; border-top: 1px solid var(--sep); display: flex; flex-wrap: wrap; gap: 8px 32px; justify-content: space-between; font-size: 13px; color: var(--label3)">
+      <p style="margin: 0">© Sangai First Foundation, Manipur · Reg. no. 442 of 02/10/2025, Indian Trusts Act, 1882</p>
+      <a href="https://www.facebook.com/profile.php?id=61573232295835" style="display: inline-flex; align-items: center; min-height: 44px; margin: -12px 0">Facebook</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { year: '2026' }; }
+  scroller(dir) {
+    return (e) => {
+      const t = e.currentTarget.closest('[data-carousel]').querySelector('[data-track]');
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      t.scrollBy({ left: dir * t.clientWidth * 0.8, behavior: reduce ? 'auto' : 'smooth' });
+    };
+  }
+  renderVals() {
+    const data = { '2026': [{"date": "2 Nov", "title": "Sangai Day at school", "place": "Children Model Academy, Thanga", "note": "51 participants; 8 quiz winners."}, {"date": "18 Oct", "title": "15 km Green Ride", "place": "To Keibul Lamjao National Park", "note": "Students and trustees cycled to the Sangai’s home."}, {"date": "17 Oct", "title": "Sangai Day at school", "place": "Thanga Higher Secondary School", "note": "53 participants; 15 teachers joined."}, {"date": "12 Oct", "title": "Sangai Day at school", "place": "Little Birds School, Moirang", "note": "51 participants, shared as part of our media initiative."}, {"date": "29 Sep", "title": "Sangai Day at school", "place": "Loktak Christian Model High School, Moirang Lamkhai", "note": "127 participants; 28 quiz winners."}, {"date": "26 Sep", "title": "Sangai Day at school", "place": "L. Dhananjoy Memorial English School, Tronglaobi", "note": "A song on the Sangai and an Uningthou planting."}, {"date": "8 Aug", "title": "Sangai Day at school", "place": "Bethel School, Nambol Chingmang", "note": "50 participants."}, {"date": "18 Jul", "title": "Uningthou planting", "place": "Paradise Gardening School, Chandpur", "note": "87 participants and planting of the State Tree."}, {"date": "11 Jul", "title": "Native tree drive", "place": "Thanga Chingjao Hillock, Loktak", "note": "With Loktak Folklore Museum, restoring the hillock’s forest."}, {"date": "25 Jun", "title": "Sangai Day at school", "place": "Padma Ratna English School, Kakching", "note": "112 participants; 28 quiz winners."}, {"date": "14 Jun", "title": "World Environment Day", "place": "Hanubi Hillock, Moirang", "note": "Around 80 young people planted 250 native saplings."}, {"date": "9 Jan", "title": "Sangai Day at school", "place": "Special Regular English School, Nambol", "note": "70 participants; 17 quiz winners."}],
+      '2024–25': [{"date": "10 Dec 2025", "title": "2nd Sangai Day", "place": "Phouoibee Community Hall, Keibul Lamjao", "note": "152 quiz winners from 11 schools honoured; 1,054 students reached in 2025."}, {"date": "18 Nov 2025", "title": "School programme", "place": "Advanced Intermediate College, Moirang", "note": "53 students and 12 teachers."}, {"date": "9 Nov 2025", "title": "Yarou Sangai 2025", "place": "Bishnupur Higher Secondary School", "note": "A district painting competition: 93 students took part."}, {"date": "27 Oct 2025", "title": "Sangaigi Numit", "place": "Toubul Government High School", "note": "A spot quiz with 47 students."}, {"date": "15 Sep 2025", "title": "Sangai Day at school", "place": "Sanatombi Oriental English School, Kumbi", "note": "14 books donated; 203 took the quiz."}, {"date": "16 Aug 2025", "title": "Sangai Day at school", "place": "Loyalam Public School, Moirangkhunou", "note": "Closed with a cultural performance on the Sangai."}, {"date": "12 Jul 2025", "title": "Sangai Day at school", "place": "Diligent Public School, Moirang", "note": "159 students, 14 teachers and 5 parents."}, {"date": "7 Jun 2025", "title": "Sangai Day at school", "place": "Ideal School, Thanga", "note": "85 participants; 70 students took the quiz."}, {"date": "10 May 2025", "title": "Sangai Day at school", "place": "Phoubakchao High School, Imphal West", "note": "16 books donated; winners got free zoo entry."}, {"date": "19 Apr 2025", "title": "Sangai Day at school", "place": "Chingmei High School", "note": "12 books donated; 71 students took the quiz."}, {"date": "8 Mar 2025", "title": "Let’s Know Our Sangai", "place": "Sekmaijin High School, Imphal West", "note": "With the Chief Conservator of Forests (Wildlife)."}, {"date": "22 Feb 2025", "title": "Sangai Day at school", "place": "Sambanlei Sekpil School, Kumbi", "note": "145 students, 7 teachers and 12 parents."}, {"date": "28 Jan 2025", "title": "First Responsible School", "place": "New Model Public School, Moirang", "note": "Our first adopted school."}, {"date": "10 Dec 2024", "title": "1st Sangai Day", "place": "Manipur Zoological Garden", "note": "The launch of our year-long school programme."}] };
+    const base = 'min-height:40px;padding:0 20px;border:0;border-radius:999px;cursor:pointer;font-size:15px;font-weight:600;';
+    const years = Object.keys(data).map((k) => ({ label: k, pressed: k === this.state.year ? 'true' : 'false',
+      pick: (e) => { this.setState({ year: k }); const t = e.currentTarget.closest('[data-carousel]').querySelector('[data-track]'); t.scrollLeft = 0; },
+      style: base + (k === this.state.year ? 'background:var(--card);color:var(--label);box-shadow:0 1px 4px rgba(0,0,0,0.12)' : 'background:transparent;color:var(--label2)') }));
+    return { years, events: data[this.state.year], scrollPrev: this.scroller(-1), scrollNext: this.scroller(1) };
+  }
+}
+</script>
+</body>
+</html>
